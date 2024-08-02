@@ -1,0 +1,5 @@
+theme: osuny
+params:
+  logo:
+    header: "/assets/images/logo.svg"
+    footer: "/assets/images/logo.svg"

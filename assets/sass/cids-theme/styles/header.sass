@@ -1,0 +1,12 @@
+header#document-header
+    nav
+        @include media-breakpoint-up(desktop)
+            .container
+                align-items: flex-end
+                .dropdown-menu
+                    border-radius: space(2)
+                    box-shadow: 0px 4px 4px 0px #00000040
+                    margin-top: 0
+                    min-width: pxToRem(256)
+                    a
+                        @include meta

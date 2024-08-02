@@ -1,0 +1,12 @@
+.container,
+.d-grid.is-visible
+    padding-left: $grid-margin
+    padding-right: $grid-margin
+    --column-width: calc( (var(--grid-width) - (var(--grid-gutter) * 11 + calc(#{$grid-margin} * 2))) / 12)
+
+a, .link
+    &[target="_blank"]:not(.icon)
+        &::after
+            @include icon-site(external)
+            display: inline-block
+            margin-left: $spacing-1

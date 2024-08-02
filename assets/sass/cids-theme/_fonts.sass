@@ -1,0 +1,22 @@
+@include font-face("Aspekta", Aspekta-500, $weight: 500, $exts: (woff2))
+@include font-face("Aspekta", Aspekta-700, $weight: 700, $exts: (woff2))
+
+@include font-face("RecklessNeue", RecklessNeue-Regular, $exts: (woff2))
+@include font-face("RecklessNeue", RecklessNeue-RegularItalic, $style: italic, $exts: (woff2))
+@include font-face("RecklessNeue", RecklessNeue-Thin, $weight: 300, $exts: (woff woff2))
+@include font-face("RecklessNeue", RecklessNeue-ThinItalic, $style: italic, $weight: 300, $exts: (woff woff2))
+@include font-face("RecklessNeue", RecklessNeue-Bold, $weight: 700, $exts: (woff2))
+@include font-face("RecklessNeue", RecklessNeue-BoldItalic, $style: italic, $weight: 700, $exts: (woff2))
+
+// Icons
+@font-face
+    font-display: block
+    font-family: 'icon-site'
+    font-style: normal
+    font-weight: 400
+    src: url('/assets/fonts/icons-site/icomoon.woff') format("woff")
+
+@mixin icon-site($icon)
+    @include icon
+    font-family: 'icon-site' !important
+    content: map-get($icons-site, $icon) !important
