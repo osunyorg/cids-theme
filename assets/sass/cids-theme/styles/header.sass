@@ -17,23 +17,58 @@ header#document-header
             padding-bottom: 0
             ul
                 @include list-reset
-                background: transparentize(#182B3A, 0.9) // --color accent
-                border-radius: pxToRem(30)
+            .container > ul
                 display: flex
                 justify-content: flex-end
                 margin-left: auto
-                li
-                    padding: space() $spacing-2
-                    border-radius: pxToRem(20)
-                    @include media-breakpoint-up(desktop)
-                        padding: space() space(4)
-                        border-radius: pxToRem(30)
-                li:first-child
-                    background: var(--color-accent)
-                    margin-right: -(space())
-                    a
-                        color: white
-                a
-                    text-decoration: none
-                    &[target="_blank"]::after
-                        display: none
+                > li
+                    > a,
+                    &.header-i18n span
+                        border-radius: pxToRem(20)
+                        padding: space() $spacing-2
+                        text-decoration: none
+                        @include media-breakpoint-up(desktop)
+                            padding: space() space(4)
+                            border-radius: pxToRem(30)
+                    > a
+                        &:not([target="_blank"])
+                            background: var(--color-accent)
+                            color: white
+                        &[target="_blank"]
+                            background: transparentize(#182B3A, 0.9) // --color accent
+                            &::after
+                                display: none
+                    + li 
+                        // Alternate dark capsule between links
+                        > a[target="_blank"]
+                            border-bottom-left-radius: 0
+                            border-top-left-radius: 0
+                            margin-left: -$spacing-2
+                            padding-left: space(5)
+                        > a:not([target="_blank"])
+                            border-bottom-right-radius: 0
+                            border-top-right-radius: 0
+                            margin-right: -$spacing-2
+                            padding-right: space(5)
+                    &.header-i18n
+                        margin-left: $spacing-2
+                        position: relative
+                        span
+                            @include icon(arrow-down-s-line, after)
+                                display: inline-block
+                                margin-left: space()
+                                margin-right: -(space())
+                                transition: transform 0.15s
+                            border: 1px solid var(--color-accent)
+                            cursor: pointer
+                            text-transform: uppercase
+                            &[aria-expanded="true"]::after
+                                transform: rotate(180deg)
+                        .dropdown-menu
+                            margin-top: $spacing-2
+                            min-width: unset
+                            padding: $spacing-1 $spacing-2
+                            position: absolute
+                            right: 0
+                            a
+                                color: $header-dropdown-color
