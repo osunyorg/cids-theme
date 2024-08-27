@@ -2,7 +2,7 @@ header#document-header
     nav
         @include media-breakpoint-up(desktop)
             .container
-                align-items: flex-end
+                align-items: baseline
                 .dropdown-menu
                     border-radius: space(2)
                     box-shadow: 0px 4px 4px 0px #00000040
@@ -10,3 +10,30 @@ header#document-header
                     min-width: pxToRem(256)
                     a
                         @include meta
+            + nav 
+                padding-top: 0
+        &.websites-navigation
+            @include meta
+            padding-bottom: 0
+            ul
+                @include list-reset
+                background: #F0F0F0 // TODO : vérifier occurence en fin d'inté
+                border-radius: pxToRem(30)
+                display: flex
+                justify-content: flex-end
+                margin-left: auto
+                li
+                    padding: space() $spacing-2
+                    border-radius: pxToRem(20)
+                    @include media-breakpoint-up(desktop)
+                        padding: space(2) space(4)
+                        border-radius: pxToRem(30)
+                li:first-child
+                    background: var(--color-accent)
+                    margin-right: -(space())
+                    a
+                        color: white
+                a
+                    text-decoration: none
+                    &[target="_blank"]::after
+                        display: none
