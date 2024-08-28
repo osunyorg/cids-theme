@@ -40,9 +40,12 @@
       {{- $has_dropdown = true -}}
       {{- $attr = printf "id=\"dropdown-%s\" role=\"button\" aria-expanded=\"false\" tabindex=\"0\"" $slug -}}
     {{- end -}}
-    {{- if and (hasPrefix .target "http") (eq .kind "url") -}}
+    {{- if and (ne $kind "website-toggle") (hasPrefix .target "http") (eq .kind "url") -}}
       {{- $attr = " target=\"_blank\" rel=\"noreferrer\"" -}}
       {{- $attr_title = printf "title=\"%s - %s\"" .title $extern_link -}}
+    {{- end -}}
+    {{- if and (eq $kind "website-toggle") (hasPrefix .target "http") (eq .kind "url") -}}
+      {{- $link_class =  printf "%s %s" $link_class "external-site" -}}
     {{- end -}}
     {{- if or (ne $stop 1) (and (eq $stop 1) (ne .kind "blank")) -}}
     <li{{ if ne $item_class ""}} class="{{ $item_class }}"{{ end }}>

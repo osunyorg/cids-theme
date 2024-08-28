@@ -31,24 +31,24 @@ header#document-header
                             padding: space() space(4)
                             border-radius: pxToRem(30)
                     > a
-                        &:not([target="_blank"])
+                        &:not(.external-site)
                             background: var(--color-accent)
                             color: white
-                        &[target="_blank"]
+                        &.external-site
                             background: transparentize(#182B3A, 0.9) // --color accent
                             &::after
                                 display: none
                     &:first-of-type
-                        > a[target="_blank"]
+                        > a.external-site
                             border-bottom-right-radius: 0
                             border-top-right-radius: 0
                             margin-right: -$spacing-2
                             padding-right: space(5)
-                        > a:not([target="_blank"])
+                        > a:not(.external-site)
                             margin-left: -$spacing-2
                             padding-left: space(5)
                     &:nth-child(2)
-                        > a[target="_blank"]
+                        > a.external-site
                             border-bottom-left-radius: 0
                             border-top-left-radius: 0
                             margin-left: -$spacing-2
