@@ -59,7 +59,12 @@
           <div class="dropdown-menu {{ if $dropdown_titled }}is-titled{{ end }}" aria-labelledby="dropdown-{{ $slug }}">
             {{- if $dropdown_titled }}
               <div class="container">
-                <a href="{{ .target }}" class="dropdown-menu-title">{{ .title }}</a>
+                <div class="dropdown-heading">
+                  <a href="{{ .target }}" class="dropdown-menu-title">{{ .title }}</a>
+                  {{ $indexPagePath := strings.TrimSuffix "/" (strings.TrimPrefix (printf "/%s/" site.Language.Lang) .target) }}
+                  {{ $indexPage := site.GetPage $indexPagePath }}
+                  <p class="dropdown-menu-lead">{{ $indexPage.Params.summary }}</p>
+                </div>
             {{ end -}}
           {{- end -}}
         {{- if gt (len .children) 0 -}}
