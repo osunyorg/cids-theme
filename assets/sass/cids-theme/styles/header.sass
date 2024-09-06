@@ -83,14 +83,14 @@ header#document-header
                             &:first-of-type
                                 padding-left: 0
             .dropdown-menu.is-titled
-                .dropdown-menu
-                    &-title
+                padding-bottom: $spacing-5
+                .dropdown-menu-title
                         @include h3
                         @include link($header-color)
                         text-decoration-color: $header-color
                         text-underline-offset: pxToRem(10)
                         margin-bottom: $spacing-3
-                    &-lead
+                .dropdown-menu-lead
                         @include lead-hero
                         font-size: $lead-hero-size
                         line-height: $lead-hero-line-height
