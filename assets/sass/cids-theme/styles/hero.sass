@@ -11,8 +11,9 @@
             width: columns(8)
 
 .block-summary
-    .lead
-        text-align: center
-        @include media-breakpoint-up(desktop)
-            margin: auto
-            width: columns(9)
+    @include in-page-without-sidebar
+        .lead
+            text-align: center
+            @include media-breakpoint-up(desktop)
+                margin: auto
+                width: columns(9)
