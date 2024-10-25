@@ -57,6 +57,8 @@ footer#document-footer
         a
             text-decoration-color: $color-text
             text-underline-offset: 3px
+            &::after
+                display: none
     .footer-legals
         @include media-breakpoint-up(desktop)
             display: flex
