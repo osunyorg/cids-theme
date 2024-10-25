@@ -7,6 +7,7 @@
 {{ end }}
 {{- $level := .level -}}
 {{- $stop := .stop -}}
+{{- $ignore_externals := .ignore_externals | default false -}}
 {{- $dropdown := .dropdown -}}
 {{- $dropdown_titled := (and site.Params.menu.dropdown.linkToLevel1 (eq $level 1)) -}}
 {{- $ulClass := "" -}}
@@ -40,11 +41,13 @@
       {{- $has_dropdown = true -}}
       {{- $attr = printf "id=\"dropdown-%s\" role=\"button\" aria-expanded=\"false\" tabindex=\"0\"" $slug -}}
     {{- end -}}
-    {{- if and (ne $kind "website-toggle") (hasPrefix .target "http") (eq .kind "url") -}}
-      {{- $attr = " target=\"_blank\" rel=\"noreferrer\"" -}}
+    {{- if and (ne $kind "top-menu") (hasPrefix .target "http") (eq .kind "url") -}}
+      {{ if eq $ignore_externals false }}
+        {{- $attr = " target=\"_blank\" rel=\"noreferrer\"" -}}
+      {{ end }}
       {{- $attr_title = printf "title=\"%s - %s\"" .title $extern_link -}}
     {{- end -}}
-    {{- if and (eq $kind "website-toggle") (hasPrefix .target "http") (eq .kind "url") -}}
+    {{- if and (eq $kind "top-menu") (hasPrefix .target "http") (eq .kind "url") -}}
       {{- $link_class =  printf "%s %s" $link_class "external-site" -}}
     {{- end -}}
     {{- if or (ne $stop 1) (and (eq $stop 1) (ne .kind "blank")) -}}
@@ -86,18 +89,12 @@
     </li>
     {{- end -}}
   {{ end -}}
-  
-  {{ if and (eq $kind "primary") (site.Params.search.active) (eq site.Params.search.position "menu")}}
+  {{ if and (site.Params.search.active) (or (eq $kind "primary") (eq $kind "top-menu")) (eq site.Params.search.position $kind) }}
     <li class="nav-search">
-      {{ partial "header/search.html"
-        (dict
-            "position" "menu"
-            "context" .
-        ) 
-      }}
+      {{ partial "header/search.html" (dict
+          "position" $kind
+          "context" .
+      )}}
     </li>
-  {{ end }}
-  {{ if and (eq $kind "website-toggle") (site.Params.menu.i18n.display) }}
-    {{ partial "header/i18n.html" .context }}
   {{ end }}
 </ul>

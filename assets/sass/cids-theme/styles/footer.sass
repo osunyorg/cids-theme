@@ -1,0 +1,66 @@
+footer#document-footer
+    .container 
+        align-items: flex-end
+        + .container:last-of-type
+            padding-bottom: 0
+        @include media-breakpoint-up(desktop)
+            + .container
+                padding-bottom: $spacing-5
+    p
+        @include meta
+    > img
+        display: none
+        @include media-breakpoint-up(desktop)
+            display: block
+            margin: auto
+            margin-bottom: $spacing-6
+    .footer-primary 
+        ul:not(.dropdown-menu)
+            li + li
+                margin-top: 0
+        a
+            @include h3
+    .footer-social
+        align-items: flex-start
+        display: flex
+        flex-direction: column-reverse
+        .nav-social
+            margin-top: $spacing-4
+            a
+                @extend .btn
+        .footer-social.site-links
+            li
+                justify-content: flex-start
+                &::after
+                    display: none
+        @include media-breakpoint-up(desktop)
+            margin-right: columns(2)
+        @include media-breakpoint-up(xxl)
+            margin-right: 0
+            width: columns(2)
+    .footer-partners
+        > p
+            margin-bottom: space()
+            @include media-breakpoint-up(desktop)
+                margin-bottom: $spacing-3
+        img
+            height: pxToRem(90)
+            max-width: columns(6)
+            + img
+                    margin-left: $spacing-2
+            @include media-breakpoint-up(desktop)
+                max-width: columns(2)
+                + img
+                        margin-left: $spacing-5
+    .footer-socials,
+    .footer-legals
+        a
+            text-decoration-color: $color-text
+            text-underline-offset: 3px
+    .footer-legals
+        @include media-breakpoint-up(desktop)
+            display: flex
+            align-items: baseline
+            gap: $spacing-3
+        @include media-breakpoint-down(desktop)
+            margin-top: $spacing-2

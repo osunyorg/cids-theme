@@ -30,10 +30,10 @@ $h3-size-desktop: pxToRem(32)
 $h3-line-height-desktop: pxToRem(44.8)
 
 // Lead
-$lead-hero-font-family: $font-serif
-$lead-hero-size-desktop: pxToRem(62)
-$lead-hero-size: pxToRem(24)
-$lead-hero-line-height-desktop: pxToRem(74.4)
+$lead-font-family: $font-serif
+$lead-size-desktop: pxToRem(62)
+$lead-line-height-desktop: pxToRem(74)
+$lead-weight: normal
 
 // signature
 $signature-size-desktop: pxToRem(20)
@@ -46,12 +46,17 @@ $header-color: $color-accent !default
 $header-logo-height: 50px
 $header-logo-height-desktop: 90px
 $header-border-bottom-width: 0
+$header-top-menu-border-bottom: 0
+
+// Hero
+$hero-background-color: $color-background
 
 // Navs
 $body-overlay-color: rgba(0, 0, 0, 0.2)
 
 // Footer
-$footer-logo-height-desktop: pxToRem(90)
+$footer-logo-height: pxToRem(90)
+$footer-logo-height-desktop: $footer-logo-height
 
 // Spacing
 $space-unit: 4
@@ -66,3 +71,15 @@ $spacing-4: space(8)  // 32px
 // New icon
 $icons-site: ()
 $icons-site: map-merge($icons-site, ("external": "\e900"))
+
+// Buttons
+
+$btn-color: white
+$btn-hover-color: $btn-color
+$btn-background: #0258FF
+$btn-hover-background: $color-text
+$btn-border: none
+
+// Blocks
+// without sidebar 
+$block-space-y-desktop: space(30)

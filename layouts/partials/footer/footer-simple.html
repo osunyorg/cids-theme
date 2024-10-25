@@ -1,0 +1,32 @@
+<div class="container footer-newsletter">
+</div>
+<img src="/assets/images/logos/symbol.svg" alt="">
+<div class="container">
+  <div class="footer-primary">
+    {{ partial "commons/menu.html" (dict
+        "context" .
+        "kind" "primary"
+        "level" 1
+        "stop" 1
+    )}}
+  </div>
+  <div class="footer-social">
+    {{ partial "footer/social.html" }}
+  </div>
+</div>
+<div class="container">
+  <div class="footer-logo">
+    {{ partial "footer/logo.html" }}
+  </div>
+  <div class="footer-partners">
+    <p>{{ i18n "commons.footer.partners.title" }}</p>
+    <img src="/assets/images/logos/geneva_graduate_institute.svg" alt="Geneva Graduate Institute">
+    <img src="/assets/images/logos/universite_geneve.svg" alt="Université de Genève">
+  </div>
+</div>
+<div class="container">
+  <p class="credit">© CIDS 2024</p>
+  <div class="footer-legals">
+    {{ partial "footer/legals.html" }}
+  </div>
+</div>
