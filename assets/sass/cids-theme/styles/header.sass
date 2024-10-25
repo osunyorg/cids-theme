@@ -10,7 +10,14 @@ header#document-header
                     a
                         padding: 0
         .menu
+            .nav-level-1:not(.upper-menu)
+                max-width: columns(8)
+                flex-wrap: wrap
+                row-gap: $spacing-3 !important
+                @include media-breakpoint-up(xxl)
+                    max-width: columns(10)
             .upper-menu.nav-level-1
+                width: columns(12)
                 margin-top: -($spacing-1)
                 gap: 0
                 justify-content: flex-start
@@ -75,7 +82,7 @@ header#document-header
                             border-color: transparent
         @include media-breakpoint-up(desktop)
             .menu
-                .nav-level-1
+                .nav-level-1:not(.upper-menu)
                     gap: $spacing-5
                     li
                         span,
