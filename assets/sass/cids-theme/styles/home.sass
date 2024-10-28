@@ -1,0 +1,27 @@
+.page__home
+    .block-class-centered-title,
+    .block-chapter
+        @include media-breakpoint-up(desktop)
+            display: block
+            > *
+                margin-left: auto
+                margin-right: auto
+                text-align: center
+                width: columns(8)
+    .block-pages--list.with-description
+        border-bottom: 1px solid $color-border
+        padding-bottom: $spacing-6
+        .block-title
+            @include h2
+            a::after
+                display: none
+            @include media-breakpoint-up(desktop)
+                    padding-top: $spacing-6
+                    margin-top: $spacing-4
+    .block-chapter
+        @include media-breakpoint-up(desktop)
+            padding-top: $spacing-2
+            p
+                @include h2
+                font-size: $h2-size
+                font-family: $font-serif

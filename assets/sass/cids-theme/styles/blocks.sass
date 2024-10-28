@@ -1,0 +1,115 @@
+// PAGES
+.block-pages
+    &--list
+        &.with-description
+            .block-content
+                @include in-page-with-or-without-sidebar
+                    display: block
+                    > *
+                        margin-left: auto
+                        margin-right: auto
+                        text-align: center
+                        width: columns(8)
+                .top
+                    .description
+                        > p
+                            font-size: $h2-size
+                            font-family: $font-serif
+                    + .title-only
+                        justify-content: center
+                        margin-top: $spacing-4
+                        li
+                            @extend .button
+                            a
+                                text-decoration: none
+                                &::before
+                                    display: none
+                            &:hover
+                                background: $color-background-alt
+                                border-color: $color-background-alt
+                        @include in-page-with-or-without-sidebar
+                            align-items: center
+                            display: flex
+                            gap: $spacing-4
+                            li + li
+                                margin-top: 0
+    // overrided block
+    &--large
+        .page
+            &-material
+                .page-content
+                    > p:not(.more)
+                        font-family: $font-serif
+                    .more
+                        @extend .button
+                        &::after
+                            display: none
+            &:hover
+                .more
+                    background-color: #{alphaColor($color-border, 0.85)}
+                    border-color: transparent
+            .media
+                margin-bottom: 0
+                img
+                    aspect-ratio: 660/438
+            @include media-breakpoint-up(desktop)
+                position: relative
+                display: block
+                + .page
+                    margin-top: $spacing-6
+                &-title
+                    padding: $spacing-5 columns(1)
+                    @include in-page-without-sidebar
+                        @include h1
+                    a
+                        text-decoration: none
+                &-material
+                    display: flex
+                    gap: var(--grid-gutter)
+                    justify-content: space-between
+                    .page-content
+                        flex: 1
+                        > p:not(.more)
+                            @include h2
+                            font-family: $font-serif
+                            font-size: $h2-size
+                        .more
+                            margin-top: $spacing-4
+                    .media
+                        width: columns(6)
+                // light superposed background
+                &::after
+                    background-color: $color-background-alt
+                    content: ''
+                    position: absolute
+                    height: calc(100% - #{$spacing-5})
+                    top: 0
+                    right: 0
+                    width: columns(10)
+                    z-index: -1
+                &:nth-child(odd)
+                    .page-title
+                        margin-left: columns(3)
+                        padding-left: 0
+                    .page-content
+                        padding-right: var(--grid-gutter)
+                &:nth-child(even)
+                    .page-content
+                        padding-left: columns(1)
+                    .media
+                        order: 2
+                    &::after
+                        right: unset
+                        left: 0
+            @include media-breakpoint-down(desktop)
+                background-color: $color-background-alt
+                margin-left: var(--grid-gutter-negative)
+                margin-right: var(--grid-gutter-negative)
+                &-title
+                    @include h1
+                &-title,
+                &-content
+                    padding: var(--grid-gutter)
+                + .page
+                    margin-top: 0
+                    padding-top: $spacing-4
