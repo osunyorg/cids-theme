@@ -130,9 +130,15 @@
                 flex-direction: row-reverse
             @include in-page-without-sidebar
                 &-content
+                    display: flex
+                    flex-direction: row-reverse
                     flex: 1
-                .media
-                    width: columns(4)
+                    hgroup,
+                    > .event-title
+                        flex: 1
+                .media,
+                .event-dates
+                    width: columns(3)
             &-dates
                 @include in-page-with-or-without-sidebar
                     span,
