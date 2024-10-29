@@ -91,22 +91,23 @@ header#document-header
                             @include signature
                             &:first-of-type
                                 padding-left: 0
-            .dropdown-menu.is-titled
-                padding-bottom: $spacing-5
-                padding-top: $spacing-4
-                .dropdown-menu-title
+            .nav-level-1:not(.upper-menu) 
+                .dropdown-menu.is-titled
+                    padding-bottom: $spacing-5
+                    padding-top: $spacing-4
+                    .dropdown-menu-title
                         @include h3
                         @include link($header-color)
                         text-decoration-color: rgba($header-color, .5)
                         text-underline-offset: pxToRem(10)
                         margin-bottom: $spacing-3
-                .dropdown-menu-lead
+                    .dropdown-menu-lead
                         @include lead-hero
                         font-size: $lead-hero-size
                         line-height: $lead-hero-line-height
-                .dropdown-heading
-                    margin-right: offset(1)
-                    width: columns(7)
-                .nav-level-2
-                    padding-top: $spacing-4
-                    width: columns(4)
+                    .dropdown-heading
+                        margin-right: offset(1)
+                        width: columns(7)
+                    .nav-level-2
+                        padding-top: $spacing-4
+                        width: columns(4)

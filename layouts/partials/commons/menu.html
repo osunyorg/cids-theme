@@ -66,7 +66,7 @@
                   <a href="{{ .target }}" class="dropdown-menu-title">{{ .title }}</a>
                   {{ $indexPagePath := strings.TrimSuffix "/" (strings.TrimPrefix (printf "/%s/" site.Language.Lang) .target) }}
                   {{ $indexPage := site.GetPage $indexPagePath }}
-                  <div class="drodivdown-menu-lead">{{ safeHTML $indexPage.Params.summary }}</div>
+                  <div class="dropdown-menu-lead">{{ safeHTML $indexPage.Params.summary }}</div>
                 </div>
             {{ end -}}
           {{- end -}}
