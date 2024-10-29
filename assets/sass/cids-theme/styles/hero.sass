@@ -8,7 +8,8 @@
             width: 100%
         figure
             margin-top: $spacing-5
-            width: columns(8)
+            @include media-breakpoint-up(desktop)
+                width: columns(8)
 
 .block-summary
     @include in-page-without-sidebar
