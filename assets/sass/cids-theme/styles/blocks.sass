@@ -19,7 +19,14 @@
 .block-title
     @include media-breakpoint-up(desktop)
         margin-bottom: $spacing-5
-    
+    // block titles before alt content
+    &.block-class-with-alt_background
+        background: $color-background-alt
+        margin-bottom: 0
+        padding-top: var(--grid-gutter)
+        + .block-chapter--alt_background
+            margin-top: 0
+            padding-top: $spacing-2
 // pages
 .block-pages
     &--list
@@ -55,26 +62,6 @@
                             gap: $spacing-4
                             li + li
                                 margin-top: 0
-        &.block-class-with-large-links
-            @include media-breakpoint-up(desktop)
-                .block-content
-                    display: flex
-                    > *
-                        width: columns(6)
-                    .top
-                        .block-title
-                            @include h2
-                            text-align: left
-                    .list,
-                    .list.title-only
-                        display: block
-                        li 
-                            > a
-                                @include lead
-                                &::before
-                                    display: none
-                                &:hover
-                                    color: $color-electric-blue
     &--cards
         background: transparent
         .cards
@@ -274,3 +261,63 @@
                 &-name
                     @include media-breakpoint-up(xl)
                         @include h3
+.block-chapter
+    &--alt_background
+        @include media-breakpoint-up(desktop)
+            // specific homepage (for mids) but will maybe be use elsewhere
+            .page__home &
+                .block-content
+                    .chapter
+                        .top
+                            order: 1
+                            .block-title
+                                text-align: left
+                        .text,
+                        figure
+                            width: columns(6)
+                        .text
+                            @include h6
+                            display: flex
+                            flex-direction: column-reverse
+                            justify-content: space-between
+                        figure
+                            img
+                                aspect-ratio: 1
+                                object-fit: cover
+        @include media-breakpoint-down(desktop)
+            .chapter
+                flex-direction: column-reverse
+                figure
+                    margin-bottom: 0
+                    margin-top: $spacing-3
+
+// links
+.block-links
+    &.block-class-with_large_links
+        @include media-breakpoint-up(desktop)
+            .block-content
+                display: flex
+                gap: var(--grid-gutter)
+                > *
+                    width: columns(6)
+                .top
+                    padding-right: offset(1)
+                    .block-title,
+                    .description
+                        text-align: left
+                        width: 100%
+                    .block-title
+                        @include h2
+                    .description
+                        @include h6
+                .links
+                    display: block
+                    li
+                        background: transparent
+                    .link-content 
+                        padding: 0
+                        min-height: unset
+                        > a
+                            @include lead
+                            &:hover
+                                @include link($color-electric-blue)
