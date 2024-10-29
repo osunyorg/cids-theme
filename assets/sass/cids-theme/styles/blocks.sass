@@ -85,8 +85,10 @@
                     height: calc(100% - #{$spacing-5})
                     top: 0
                     right: 0
-                    width: columns(10)
+                    width: columns(6)
                     z-index: -1
+                    @include in-page-without-sidebar
+                        width: columns(10)
                 &:nth-child(odd)
                     .page-title
                         margin-left: columns(3)
@@ -113,3 +115,51 @@
                 + .page
                     margin-top: 0
                     padding-top: $spacing-4
+.block-agenda
+    .event-dates
+        @include in-page-with-or-without-sidebar
+            span,
+            .event-time
+                font-family: $font-sans-serif
+                @include media-breakpoint-up(desktop)
+                    @include h3
+                    font-family: $font-sans-serif
+    &--list
+        .event
+            @include media-breakpoint-up(desktop)
+                flex-direction: row-reverse
+            @include in-page-without-sidebar
+                &-content
+                    flex: 1
+                .media
+                    width: columns(4)
+            &-dates
+                @include in-page-with-or-without-sidebar
+                    span,
+                    .event-time
+                        font-family: $font-sans-serif
+                        @include media-breakpoint-up(desktop)
+                            @include h3
+                            font-family: $font-sans-serif
+                        @include media-breakpoint-up(xxl)
+                            @include h2
+// QUOTE / TESTIMONIALS
+.block-testimonials
+    @include in-page-with-or-without-sidebar
+        .testimonial
+            padding-left: 0
+            text-align: center
+            &.with-picture
+                figcaption
+                    display: flex
+                    flex-direction: column
+                    justify-content: center
+                    gap: $spacing-2
+                    margin-top: $spacing-4
+                    .avatar
+                        height: pxToRem(90)
+                        left: unset
+                        margin-left: 0
+                        position: relative
+                        top: unset
+                        width: pxToRem(90)

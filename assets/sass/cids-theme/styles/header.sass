@@ -11,19 +11,20 @@ header#document-header
                         padding: 0
         .menu
             .nav-level-1:not(.upper-menu)
-                max-width: columns(8)
                 flex-wrap: wrap
                 row-gap: $spacing-3 !important
+                @include media-breakpoint-up(desktop)
+                    max-width: columns(8)
                 @include media-breakpoint-up(xxl)
                     max-width: columns(10)
             .upper-menu.nav-level-1
-                width: columns(12)
-                margin-top: -($spacing-1)
                 gap: 0
                 justify-content: flex-start
+                margin-top: -($spacing-1)
                 @include media-breakpoint-up(desktop)
                     justify-content: flex-end
                     margin-bottom: 0
+                    width: columns(12)
                 > li
                     > *
                         @include meta
