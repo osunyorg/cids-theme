@@ -115,6 +115,7 @@
                 + .page
                     margin-top: 0
                     padding-top: $spacing-4
+// events / agenda
 .block-agenda
     .event-dates
         @include in-page-with-or-without-sidebar
@@ -151,25 +152,75 @@
                             @include h2
 // QUOTE / TESTIMONIALS
 .block-testimonials
-        .testimonial
-            @include in-page-with-or-without-sidebar
-                padding-left: 0
-                text-align: center
-                &.with-picture
-                    figcaption
-                        display: flex
-                        flex-direction: column
-                        justify-content: center
-                        gap: $spacing-2
-                        margin-top: $spacing-4
-                        .avatar
-                            height: pxToRem(90)
-                            left: unset
-                            margin-left: 0
-                            position: relative
-                            top: unset
-                            width: pxToRem(90)
-            @include in-page-without-sidebar
-                @include media-breakpoint-up(xl)
-                    margin: auto
-                    max-width: columns(8)
+    .testimonial
+        @include in-page-with-or-without-sidebar
+            padding-left: 0
+            text-align: center
+            &.with-picture
+                figcaption
+                    display: flex
+                    flex-direction: column
+                    justify-content: center
+                    gap: $spacing-2
+                    margin-top: $spacing-4
+                    .avatar
+                        height: pxToRem(90)
+                        left: unset
+                        margin-left: 0
+                        position: relative
+                        top: unset
+                        width: pxToRem(90)
+        @include in-page-without-sidebar
+            @include media-breakpoint-up(xl)
+                margin: auto
+                max-width: columns(8)
+
+// Persons / people
+.block-persons
+    .person:hover
+        .person-name a
+            @include link
+
+// organizations
+.block-organizations
+    &--grid
+        .organizations.with-summaries
+            .organization
+                &-content
+                    .organization-title
+                        @include h4
+                        margin-bottom: $spacing-1
+                &:hover
+                    .organization-title
+                        @include link
+        @include in-page-without-sidebar
+            .organizations:not(.block-organizations--map .organizations)
+                &.with-summaries
+                    @include grid(2)
+                    .organization
+                        width: columns(5)
+
+// chapters
+.block-chapter
+    .chapter
+        @include media-breakpoint-up(desktop)
+            figure
+                margin-bottom: $spacing-5
+    @include in-page-with-or-without-sidebar
+        &--accent_background,
+        &--alt_background
+                margin: auto
+                width: columns(8)
+                .block-content
+                    .chapter
+                        gap: var(--grid-gutter)
+                        .text
+                            flex: 1
+                            order: 2
+                        figure
+                            width: columns(3)
+        &--alt_background
+            + .block-chapter--alt_background
+                .block-content
+                    border-top: 1px solid var(--color-border)
+                    padding-top: calc(var(--grid-gutter) * 2)
