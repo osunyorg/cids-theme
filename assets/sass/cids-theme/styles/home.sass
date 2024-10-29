@@ -3,7 +3,7 @@
         + .block-testimonials
             margin-top: space(25)
     .block-class-centered-title,
-    .block-chapter
+    .block-chapter:not(.block-chapter--alt_background)
         @include media-breakpoint-up(desktop)
             display: block
             > *
@@ -21,7 +21,7 @@
             @include media-breakpoint-up(desktop)
                     padding-top: $spacing-6
                     margin-top: $spacing-4
-    .block-chapter
+    .block-chapter:not(.block-chapter--alt_background)
         @include media-breakpoint-up(desktop)
             padding-top: $spacing-2
             p

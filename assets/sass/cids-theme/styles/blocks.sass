@@ -151,25 +151,33 @@
                             @include h2
 // QUOTE / TESTIMONIALS
 .block-testimonials
-        .testimonial
-            @include in-page-with-or-without-sidebar
-                padding-left: 0
-                text-align: center
-                &.with-picture
-                    figcaption
-                        display: flex
-                        flex-direction: column
-                        justify-content: center
-                        gap: $spacing-2
-                        margin-top: $spacing-4
-                        .avatar
-                            height: pxToRem(90)
-                            left: unset
-                            margin-left: 0
-                            position: relative
-                            top: unset
-                            width: pxToRem(90)
-            @include in-page-without-sidebar
-                @include media-breakpoint-up(xl)
-                    margin: auto
-                    max-width: columns(8)
+    .testimonials
+        padding-top: $spacing-5
+        padding-bottom: $spacing-4
+        background:
+            image: url('/assets/images/pattern_blue.svg')
+            position: center
+            repeat: no-repeat
+            size: contain
+    .testimonial
+        @include in-page-with-or-without-sidebar
+            padding-left: 0
+            text-align: center
+            &.with-picture
+                figcaption
+                    display: flex
+                    flex-direction: column
+                    justify-content: center
+                    gap: $spacing-2
+                    margin-top: $spacing-4
+                    .avatar
+                        height: pxToRem(90)
+                        left: unset
+                        margin-left: 0
+                        position: relative
+                        top: unset
+                        width: pxToRem(90)
+        @include in-page-without-sidebar
+            @include media-breakpoint-up(xl)
+                margin: auto
+                max-width: columns(8)
