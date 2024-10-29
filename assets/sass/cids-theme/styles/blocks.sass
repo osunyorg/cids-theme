@@ -1,20 +1,21 @@
 // top of blocks
 .block
     @include in-page-with-or-without-sidebar
-        .top
-            flex-direction: column
-            align-items: center
-            a
-                @include link
-                text-decoration-color: transparent
-                &::after
-                    display: none
-            .block-title,
-            .description
-                margin: auto
-                text-align: center
-                width: columns(6)
-    
+        &:not(.block-call_to_action)
+            .top
+                flex-direction: column
+                align-items: center
+                a
+                    @include link
+                    text-decoration-color: transparent
+                    &::after
+                        display: none
+                .block-title,
+                .description
+                    margin: auto
+                    text-align: center
+                    width: columns(6)
+
 // titles
 .block-title
     @include media-breakpoint-up(desktop)
