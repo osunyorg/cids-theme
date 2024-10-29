@@ -27,5 +27,6 @@
     @include media-breakpoint-up(desktop)
         + .block-summary 
             padding-bottom: $spacing-6
-            .lead
-                padding-left: offset(2)
+            @include in-page-with-sidebar
+                .lead
+                    padding-left: offset(2)
