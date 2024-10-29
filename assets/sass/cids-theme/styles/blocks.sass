@@ -1,4 +1,26 @@
-// PAGES
+// top of blocks
+.block
+    @include in-page-with-or-without-sidebar
+        .top
+            flex-direction: column
+            align-items: center
+            a
+                @include link
+                text-decoration-color: transparent
+                &::after
+                    display: none
+            .block-title,
+            .description
+                margin: auto
+                text-align: center
+                width: columns(6)
+    
+// titles
+.block-title
+    @include media-breakpoint-up(desktop)
+        margin-bottom: $spacing-5
+    
+// pages
 .block-pages
     &--list
         &.with-description
@@ -33,6 +55,26 @@
                             gap: $spacing-4
                             li + li
                                 margin-top: 0
+        &.block-class-with-large-links
+            @include media-breakpoint-up(desktop)
+                .block-content
+                    display: flex
+                    > *
+                        width: columns(6)
+                    .top
+                        .block-title
+                            @include h2
+                            text-align: left
+                    .list,
+                    .list.title-only
+                        display: block
+                        li 
+                            > a
+                                @include lead
+                                &::before
+                                    display: none
+                                &:hover
+                                    color: $color-electric-blue
     &--cards
         background: transparent
         .cards
@@ -67,6 +109,10 @@
                         img
                             margin-top: var(--grid-gutter)
                             aspect-ratio: 426/282
+        @include in-page-with-or-without-sidebar
+            .top
+                .block-title
+                    width: unset
     // overrided block
     &--large
         .page
@@ -215,3 +261,16 @@
             @include media-breakpoint-up(xl)
                 margin: auto
                 max-width: columns(8)
+// persons
+.block-persons
+    div.persons
+        .person-name
+                font-family: $font-serif
+        @include in-page-without-sidebar
+            @include media-breakpoint-up(xxl)
+                @include grid(5)
+            .person
+                text-align: left
+                &-name
+                    @include media-breakpoint-up(xl)
+                        @include h3
