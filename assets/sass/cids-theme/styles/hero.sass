@@ -12,10 +12,12 @@
                 width: 100%
                 .page__home
                     width: columns(8)
-.block-summary
+
+.document-content .container > .lead,
+.block-summary .lead
     @include in-page-without-sidebar
-        .lead
-            text-align: center
-            @include media-breakpoint-up(desktop)
-                margin: auto
-                width: columns(9)
+        text-align: center
+        @include media-breakpoint-up(desktop)
+            margin-left: auto
+            margin-right: auto
+            width: columns(9)
