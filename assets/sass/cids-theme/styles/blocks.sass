@@ -69,14 +69,11 @@
                         justify-content: center
                         margin-top: $spacing-4
                         li
-                            @extend .button
                             a
+                                @extend .button
                                 text-decoration: none
                                 &::before
                                     display: none
-                            &:hover
-                                background: $color-background-alt
-                                border-color: $color-background-alt
                         @include in-page-with-or-without-sidebar
                             align-items: center
                             display: flex
@@ -135,8 +132,8 @@
                             display: none
             &:hover
                 .more
-                    background-color: #{alphaColor($color-border, 0.85)}
-                    border-color: transparent
+                    background-color: var(--btn-hover-background)
+                    color: var(--btn-hover-color)
             .media
                 margin-bottom: 0
                 img
