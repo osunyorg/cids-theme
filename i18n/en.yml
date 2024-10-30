@@ -1,4 +1,7 @@
 commons:
+  contact:
+    email:
+      label: Contact
   menu:
     toggle: Navigation betweend CIDS websites
   credit: Made by <a href="https://www.noesya.coop/" title="noesya - external link" target="_blank" rel="noreferrer">noesya</a> + <a href="https://www.cmjnrvb.net/" title="cmjnrvb studio - external link" target="_blank" rel="noreferrer">cmjnrvb studio</a>

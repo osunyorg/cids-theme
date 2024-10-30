@@ -1,9 +1,59 @@
 body:not(.page__home)
     .block-title
         text-align: center
-    
-// PAGES
+
+// top of blocks
+.block
+    @include in-page-with-or-without-sidebar
+        &:not(.block-call_to_action, .block-links)
+            .top
+                flex-direction: column
+                align-items: center
+                a
+                    @include link
+                    text-decoration-color: transparent
+                    &::after
+                        display: none
+                .block-title,
+                .description
+                    margin-left: auto
+                    margin-right: auto
+                    width: columns(6)
+                .block-title
+                    text-align: center
+                    margin-bottom: 0
+// titles
+.block-title
+    @include media-breakpoint-up(desktop)
+        margin-bottom: $spacing-5
+    // block titles before alt content
+    &.block-class-with-alt_background
+        background: $color-background-alt
+        margin-bottom: 0
+        padding-top: var(--grid-gutter)
+        + .block-chapter--alt_background
+            margin-top: 0
+            padding-top: $spacing-2
+// pages
 .block-pages
+    // overrided block : add "read more" button
+    &--grid
+        .grid
+            article
+                align-items: flex-start
+                .page-title
+                    order: -2
+                    margin-bottom: $spacing-1
+                    a::after
+                        display: none
+                .more
+                    @extend .button
+                &:hover
+                    .more
+                        background-color: $color-background-alt
+                        border-color: $color-background-alt
+                .media
+                    margin-bottom: 0
     &--list
         &.with-description
             .block-content
@@ -23,20 +73,56 @@ body:not(.page__home)
                         justify-content: center
                         margin-top: $spacing-4
                         li
-                            @extend .button
                             a
+                                @extend .button
                                 text-decoration: none
                                 &::before
                                     display: none
-                            &:hover
-                                background: $color-background-alt
-                                border-color: $color-background-alt
                         @include in-page-with-or-without-sidebar
                             align-items: center
                             display: flex
                             gap: $spacing-4
                             li + li
                                 margin-top: 0
+    &--cards
+        background: transparent
+        .cards
+            @include in-page-with-or-without-sidebar
+                row-gap: $spacing-6
+            article
+                align-items: flex-start
+                padding-bottom: 0
+                .page-title
+                    @include h2
+                .page-title,
+                p:not(.more)
+                    font-family: $font-serif
+                p:not(.more)
+                    @include h6
+                    + .more
+                        margin-top: $spacing-2
+                .more
+                    @extend .btn
+                    margin-bottom: var(--grid-gutter)
+                    &::after
+                        display: none
+                &:hover
+                    .more
+                        border-color: $color-background
+                .media
+                    order: 3
+                    margin-bottom: 0
+                    margin-top: var(--grid-gutter)
+                    @include media-breakpoint-up(desktop)
+                        margin-top: auto
+                        img
+                            aspect-ratio: 426/282
+                @include media-breakpoint-down(desktop)
+                    min-height: unset
+        @include in-page-with-or-without-sidebar
+            .top
+                .block-title
+                    width: unset
     // overrided block
     &--large
         .page
@@ -50,8 +136,8 @@ body:not(.page__home)
                             display: none
             &:hover
                 .more
-                    background-color: #{alphaColor($color-border, 0.85)}
-                    border-color: transparent
+                    background-color: var(--btn-hover-background)
+                    color: var(--btn-hover-color)
             .media
                 margin-bottom: 0
                 img
@@ -119,7 +205,32 @@ body:not(.page__home)
                 + .page
                     margin-top: 0
                     padding-top: $spacing-4
-// events / agenda
+// key figures
+.block-key_figures
+    ul
+        li 
+            border-top: 1px solid var(--color-border)
+            padding-top: var(--grid-gutter)
+            span
+                align-items: center
+                display: flex
+                white-space: unset
+                strong
+                    white-space: nowrap
+                    @include media-breakpoint-down(desktop)
+                        margin-right: $spacing-4
+            @include media-breakpoint-up(desktop)
+                padding-top: $spacing-5
+                &:nth-child(odd)
+                    padding-right: var(--grid-gutter)
+                &:nth-child(even)
+                    padding-left: var(--grid-gutter)
+                span
+                    gap: $spacing-5
+                    @include media-breakpoint-up(xxl)
+                        gap: $spacing-6
+        @include in-page-with-or-without-sidebar
+            grid-gap: $spacing-5 0
 .block-agenda
     .event-dates
         @include in-page-with-or-without-sidebar
@@ -156,6 +267,14 @@ body:not(.page__home)
                             @include h2
 // QUOTE / TESTIMONIALS
 .block-testimonials
+    .testimonials
+        padding-top: $spacing-5
+        padding-bottom: $spacing-4
+        background:
+            image: url('/assets/images/pattern_blue.svg')
+            position: center
+            repeat: no-repeat
+            size: contain
     .testimonial
         @include in-page-with-or-without-sidebar
             padding-left: 0
@@ -181,9 +300,23 @@ body:not(.page__home)
 
 // Persons / people
 .block-persons
-    .person:hover
-        .person-name a
-            @include link
+    div.persons
+        .person-name
+                font-family: $font-serif
+        @include in-page-without-sidebar
+            @include media-breakpoint-up(xxl)
+                @include grid(5)
+            .person
+                text-align: left
+                &-name
+                    @include media-breakpoint-up(xl)
+                        @include h3
+                &:hover
+                    a
+                        @include link
+        .person:hover
+            .person-name a
+                @include link
 
 // organizations
 .block-organizations
@@ -228,3 +361,152 @@ body:not(.page__home)
                 .block-content
                     border-top: 1px solid var(--color-border)
                     padding-top: calc(var(--grid-gutter) * 2)
+                margin-left: auto
+                margin-right: auto
+    &--alt_background
+        @include media-breakpoint-up(desktop)
+            // specific homepage (for mids) but will maybe be use elsewhere
+            .page__home &
+                .block-content
+                    .chapter
+                        .top
+                            order: 1
+                            .block-title
+                                text-align: left
+                        .text,
+                        figure
+                            width: columns(6)
+                        .text
+                            @include h6
+                            display: flex
+                            flex-direction: column-reverse
+                            justify-content: space-between
+                        figure
+                            img
+                                aspect-ratio: 1
+                                object-fit: cover
+        @include media-breakpoint-down(desktop)
+            .chapter
+                flex-direction: column-reverse
+                figure
+                    margin-bottom: 0
+                    margin-top: $spacing-3
+
+// links
+.block-links
+    &.block-class-with_large_links
+        @include media-breakpoint-up(desktop)
+            .block-content
+                display: flex
+                gap: var(--grid-gutter)
+                > *
+                    width: columns(6)
+                .top
+                    display: block
+                    padding-right: offset(1)
+                    .block-title,
+                    .description
+                        text-align: left
+                        width: 100%
+        .block-title
+            @include h2
+            margin-bottom: $spacing-2
+        .description
+            @include h6
+        ul.links
+            display: block
+            @include in-page-with-or-without-sidebar
+                display: block
+            li
+                background: transparent
+                @include media-breakpoint-down(desktop)
+                    + li
+                        margin-top: $spacing-2
+            .link-content 
+                padding: 0
+                min-height: unset
+                > a
+                    @include lead
+                    &:hover
+                        @include link($color-electric-blue)
+
+// timeline : display flex and electrical blue
+.block-timeline
+    &--vertical
+        .timeline-event
+            &::before,
+            &::after
+                background-color: $color-electric-blue
+                @include media-breakpoint-up(desktop)
+                    left: var(--grid-gutter-negative)
+            &::before
+                height: pxToRem(20)
+                width: pxToRem(20)
+                margin-top: 0
+                margin-left: -(pxToRem(8))
+            &::after
+                width: pxToRem(4)
+            @include media-breakpoint-up(desktop)
+                display: flex
+                gap: var(--grid-gutter)
+                .title
+                    width: columns(3)
+                    @include media-breakpoint-up(xxl)
+                        width: columns(2)
+                div
+                    flex: 1
+
+// features
+.block-features
+    @include in-page-with-or-without-sidebar
+        ul
+            li
+                flex-direction: row-reverse
+                gap: var(--grid-gutter)
+                figure
+                    margin-right: 0
+
+// datatable
+.block-datatable
+    .top
+        .description p
+            width: 100%
+    th
+        border-top: 1px solid var(--color-border)
+    tbody
+        td
+            @include meta
+        tr:last-child
+            td
+                border-bottom: 1px solid var(--color-border)
+        @include media-breakpoint-up(desktop)
+            th, 
+            td
+                padding-top: $spacing-3
+                padding-bottom: $spacing-3
+                padding-right: $spacing-3
+
+// projects
+.projects
+    // add border between rows
+    .projects__section &
+        &--grid
+            @include media-breakpoint-up(desktop)
+                grid-gap: $spacing-5 var(--grid-gutter)
+                .project
+                    padding-bottom: space(10)
+                    &:nth-child(odd)
+                        &::after
+                            content: ''
+                            position: absolute
+                            height: 1px
+                            width: columns(12)
+                            background-color: var(--color-border)
+                            bottom: 0
+            .project-description
+                > div::after
+                    @extend .button
+                    content: 'Discover'
+                    margin-top: $spacing-2
+                    @include media-breakpoint-up(desktop)
+                        margin-top: $spacing-3

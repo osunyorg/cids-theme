@@ -7,6 +7,7 @@ $color-border: rgba(0, 0, 0, 0.30) !default
 $color-selection: $color-background !default
 $color-selection-background: rgba($color-text, .7) !default
 $color-electric-blue: #0258FF
+$deep-blue-background-alt: #13232F
 
 // Grid System 
 $grid-gutter: pxToRem(24)
@@ -41,7 +42,16 @@ $h5-font-family: $font-serif
 $h5-size-desktop: pxToRem(32)
 $h5-line-height-desktop: pxToRem(38.4)
 $h5-weight: bold
-$h5-text-transform: normal
+$h5-text-transform: none
+
+// h6 or tab
+$h6-font-family: $font-serif
+$h6-size-desktop: pxToRem(26)
+$h6-size: pxToRem(18)
+$h6-line-height: pxToRem(22.4)
+$h6-line-height-desktop: pxToRem(31.2)
+$h6-weight: normal
+$h6-text-transform: none
 
 // Lead
 $lead-font-family: $font-serif
@@ -94,12 +104,29 @@ $icons-site: ()
 $icons-site: map-merge($icons-site, ("external": "\e900"))
 
 // Buttons
-// $btn-color: white
-// $btn-hover-color: $btn-color
-// $btn-background: #0258FF
-// $btn-hover-background: $color-text
-// $btn-border: none
+$btn-min-width-desktop: pxToRem(134)
+$btn-padding-desktop: pxToRem(14) pxToRem(16)
+$btn-hover-color: white
+$btn-hover-background: $color-accent
 
 // Blocks
 // without sidebar 
 $block-space-y-desktop: space(30)
+
+// key figures
+$block-key_figures-number-font-weight: normal
+
+$block-key_figures-font-size: pxToRem(20)
+$block-key_figures-number-font-size: pxToRem(40)
+
+$block-key_figures-font-size-desktop: $block-key_figures-font-size
+$block-key_figures-number-font-size-desktop: pxToRem(40)
+
+$block-key_figures-font-size-lg: $block-key_figures-font-size
+$block-key_figures-number-font-size-lg: pxToRem(80)
+
+$block-key_figures-font-size-xl: $block-key_figures-font-size
+$block-key_figures-number-font-size-xl: pxToRem(160)
+
+$block-key_figures-font-size-xxl: $block-key_figures-font-size
+$block-key_figures-number-font-size-xxl: pxToRem(160)

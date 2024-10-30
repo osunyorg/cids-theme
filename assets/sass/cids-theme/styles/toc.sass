@@ -19,6 +19,7 @@
                 width: auto
             &.is-visible, &:focus, &:focus-visible
                 opacity: 1
+                pointer-events: all
                 transform: translateY(var(--grid-gutter))
                 transition: transform .6s ease-in-out, opacity .3s ease-in-out
             html:not(.is-scrolling-down) &
