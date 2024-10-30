@@ -14,19 +14,22 @@ body
             background: var(--hero-background-color)
         // BLOCKS
         .block-pages article:not(:hover) .more
-            border: pxToRem(1) solid white !important
+            border: pxToRem(1) solid rgba(255,255,255, 0.4) !important
         .block-pages--cards .card
             background-color: $deep-blue-background-alt
             &:hover
                 background-color: $color-electric-blue
-                &, a, .more
+                &, a
                     color: var(--color-text)
+        .block-pages--cards .card,
+        .block-pages--large .page
+            &:hover
+                .more
+                    background-color: var(--color-text)
+                    color: var(--color-accent)
         .block-pages--large .page
             &:after
                 background-color: $deep-blue-background-alt
-            &:hover
-                .more
-                    background-color: $color-electric-blue
         .block-testimonials blockquote p
             color: var(--color-text)
 
