@@ -29,6 +29,24 @@
             padding-top: $spacing-2
 // pages
 .block-pages
+    // overrided block : add "read more" button
+    &--grid
+        .grid
+            article
+                align-items: flex-start
+                .page-title
+                    order: -2
+                    margin-bottom: $spacing-1
+                    a::after
+                        display: none
+                .more
+                    @extend .button
+                &:hover
+                    .more
+                        background-color: $color-background-alt
+                        border-color: $color-background-alt
+                .media
+                    margin-bottom: 0
     &--list
         &.with-description
             .block-content
@@ -261,6 +279,9 @@
                 &-name
                     @include media-breakpoint-up(xl)
                         @include h3
+                &:hover
+                    a
+                        @include link
 .block-chapter
     &--alt_background
         @include media-breakpoint-up(desktop)
@@ -306,18 +327,24 @@
                     .description
                         text-align: left
                         width: 100%
-                    .block-title
-                        @include h2
-                    .description
-                        @include h6
-                .links
-                    display: block
-                    li
-                        background: transparent
-                    .link-content 
-                        padding: 0
-                        min-height: unset
-                        > a
-                            @include lead
-                            &:hover
-                                @include link($color-electric-blue)
+        .block-title
+            @include h2
+        .description
+            @include h6
+
+        ul.links
+            display: block
+            @include in-page-with-or-without-sidebar
+                display: block
+            li
+                background: transparent
+                @include media-breakpoint-down(desktop)
+                    + li
+                        margin-top: $spacing-2
+            .link-content 
+                padding: 0
+                min-height: unset
+                > a
+                    @include lead
+                    &:hover
+                        @include link($color-electric-blue)
