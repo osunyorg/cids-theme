@@ -1,4 +1,26 @@
 .page__home
+    @include media-breakpoint-up(desktop)
+        .hero
+            .hero-text
+                align-items: center
+                display: flex
+                justify-content: center
+                height: calc(100vh - (#{$spacing-5} * 2) - var(--header-height))
+                position: relative
+                margin-top: 0
+                h1
+                    position: fixed
+                    height: fit-content
+                    width: columns(10)
+                    // opacity: 1
+                    // transition: opacity 0.3s ease
+                    // transition-delay: .15s
+                    // html.is-scrolling-down &
+                    //     opacity: 0
+                &.hidden
+                    opacity: 0
+            figure
+                margin-top: 0
     .block-class-centered-title
         + .block-testimonials
             margin-top: space(25)
