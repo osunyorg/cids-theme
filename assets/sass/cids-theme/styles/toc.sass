@@ -1,0 +1,13 @@
+.document-content
+  > .toc-cta
+    position: fixed
+    top: 0
+    z-index: 1000
+    width: auto
+    left: 0
+    transform: translateX(-100%)
+    transition: .3s ease-in-out
+    &.is-visible, &:focus, &:focus-visible
+      transform: none
+    html:not(.is-scrolling-down) &
+      top: 0
