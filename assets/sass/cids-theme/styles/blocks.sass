@@ -12,10 +12,12 @@
                         display: none
                 .block-title,
                 .description
-                    margin: auto
-                    text-align: center
+                    margin-left: auto
+                    margin-right: auto
                     width: columns(6)
-
+                .block-title
+                    text-align: center
+                    margin-bottom: 0
 // titles
 .block-title
     @include media-breakpoint-up(desktop)
@@ -88,7 +90,6 @@
                 row-gap: $spacing-6
             article
                 align-items: flex-start
-                background-color: $color-background-alt
                 padding-bottom: 0
                 .page-title
                     @include h2
@@ -101,6 +102,7 @@
                         margin-top: $spacing-2
                 .more
                     @extend .btn
+                    margin-bottom: var(--grid-gutter)
                     &::after
                         display: none
                 &:hover
@@ -113,8 +115,9 @@
                     @include media-breakpoint-up(desktop)
                         margin-top: auto
                         img
-                            margin-top: var(--grid-gutter)
                             aspect-ratio: 426/282
+                @include media-breakpoint-down(desktop)
+                    min-height: unset
         @include in-page-with-or-without-sidebar
             .top
                 .block-title
@@ -284,6 +287,12 @@
                     a
                         @include link
 .block-chapter
+    .chapter
+        @include media-breakpoint-up(desktop)
+            figure
+                margin-bottom: $spacing-5
+                margin-left: auto
+                margin-right: auto
     &--alt_background
         @include media-breakpoint-up(desktop)
             // specific homepage (for mids) but will maybe be use elsewhere

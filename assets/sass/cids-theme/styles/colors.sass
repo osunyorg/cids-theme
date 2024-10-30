@@ -1,0 +1,36 @@
+
+body
+    // page with dark blue background
+    &.page-dark_blue_background
+        --btn-color: var(--color-text)
+        --color-background: #{$color-accent}
+        --color-background-alt: #{$deep-blue-background-alt}
+        --color-text: white
+        --hero-background-color: #{$color-accent}
+        --hero-color: var(--color-text)
+        // LAYOUT
+        .hero
+            background: var(--hero-background-color)
+        // BLOCKS
+        .block-pages article:not(:hover) .more
+            border: pxToRem(1) solid white !important
+        .block-pages--cards .card
+            background-color: $deep-blue-background-alt
+            &:hover
+                background-color: $color-electric-blue
+                &, a, .more
+                    color: var(--color-text)
+        .block-pages--large .page
+            &:after
+                background-color: $deep-blue-background-alt
+            &:hover
+                .more
+                    background-color: $color-electric-blue
+        .block-testimonials blockquote p
+            color: var(--color-text)
+
+
+    // normal pages
+    &:not(.page-dark_blue_background)
+        .block-pages--cards .card:not(:hover)
+            background-color: $color-background-alt
