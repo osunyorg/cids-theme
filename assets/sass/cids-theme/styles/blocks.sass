@@ -363,7 +363,7 @@ body:not(.page__home)
                     padding-top: calc(var(--grid-gutter) * 2)
                 margin-left: auto
                 margin-right: auto
-    &--alt_background
+    &--alt_background,
         @include media-breakpoint-up(desktop)
             // specific homepage (for mids) but will maybe be use elsewhere
             .page__home &
@@ -510,3 +510,12 @@ body:not(.page__home)
                     margin-top: $spacing-2
                     @include media-breakpoint-up(desktop)
                         margin-top: $spacing-3
+
+// images
+.block-image
+    figure
+        margin-left: var(--grid-gutter-negative) !important
+        picture
+            img
+                width: 100% !important
+                object-fit: cover
