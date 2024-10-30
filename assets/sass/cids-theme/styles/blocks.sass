@@ -69,14 +69,11 @@
                         justify-content: center
                         margin-top: $spacing-4
                         li
-                            @extend .button
                             a
+                                @extend .button
                                 text-decoration: none
                                 &::before
                                     display: none
-                            &:hover
-                                background: $color-background-alt
-                                border-color: $color-background-alt
                         @include in-page-with-or-without-sidebar
                             align-items: center
                             display: flex
@@ -135,8 +132,8 @@
                             display: none
             &:hover
                 .more
-                    background-color: #{alphaColor($color-border, 0.85)}
-                    border-color: transparent
+                    background-color: var(--btn-hover-background)
+                    color: var(--btn-hover-color)
             .media
                 margin-bottom: 0
                 img
@@ -441,3 +438,28 @@
                 padding-top: $spacing-3
                 padding-bottom: $spacing-3
                 padding-right: $spacing-3
+
+// projects
+.projects
+    // add border between rows
+    .projects__section &
+        &--grid
+            @include media-breakpoint-up(desktop)
+                grid-gap: $spacing-5 var(--grid-gutter)
+                .project
+                    padding-bottom: space(10)
+                    &:nth-child(odd)
+                        &::after
+                            content: ''
+                            position: absolute
+                            height: 1px
+                            width: columns(12)
+                            background-color: var(--color-border)
+                            bottom: 0
+            .project-description
+                > div::after
+                    @extend .button
+                    content: 'Discover'
+                    margin-top: $spacing-2
+                    @include media-breakpoint-up(desktop)
+                        margin-top: $spacing-3
