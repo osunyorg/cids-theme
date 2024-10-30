@@ -1,7 +1,7 @@
 // top of blocks
 .block
     @include in-page-with-or-without-sidebar
-        &:not(.block-call_to_action)
+        &:not(.block-call_to_action, .block-links)
             .top
                 flex-direction: column
                 align-items: center
@@ -358,6 +358,7 @@
                 > *
                     width: columns(6)
                 .top
+                    display: block
                     padding-right: offset(1)
                     .block-title,
                     .description
@@ -365,6 +366,7 @@
                         width: 100%
         .block-title
             @include h2
+            margin-bottom: $spacing-2
         .description
             @include h6
         ul.links
