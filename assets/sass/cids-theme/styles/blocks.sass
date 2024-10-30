@@ -422,14 +422,20 @@
 
 // datatable
 .block-datatable
+    .top
+        .description p
+            width: 100%
     th
         border-top: 1px solid var(--color-border)
-    th, 
-    td
-        padding-top: $spacing-3
-        padding-bottom: $spacing-3
-        padding-right: $spacing-3
     tbody
+        td
+            @include meta
         tr:last-child
             td
                 border-bottom: 1px solid var(--color-border)
+        @include media-breakpoint-up(desktop)
+            th, 
+            td
+                padding-top: $spacing-3
+                padding-bottom: $spacing-3
+                padding-right: $spacing-3
