@@ -10,14 +10,17 @@
             margin-top: $spacing-5
             @include media-breakpoint-up(desktop)
                 width: 100%
-                .page__home
+                .page__home &
                     width: columns(8)
 
-.document-content .container > .lead,
-.block-summary .lead
+.block-summary,
+.lead
     @include in-page-without-sidebar
+        margin-bottom: $spacing-6
+        margin-left: auto
+        margin-right: auto
         text-align: center
-        @include media-breakpoint-up(desktop)
-            margin-left: auto
-            margin-right: auto
+.block-summary
+    @include in-page-without-sidebar
+        .lead
             width: columns(9)

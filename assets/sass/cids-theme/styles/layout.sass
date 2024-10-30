@@ -11,3 +11,43 @@ a, .link
             @include icon-site(external)
             display: inline-block
             margin-left: $spacing-1
+
+// Bloc sizes
+body:not(.page__home)
+    .document-content
+        @include media-breakpoint-up(desktop)
+            .block-content
+                padding-left: 0 !important
+                margin: auto
+            .block:not(.block-title, .block-summary, .block-key_figures, .block-chapter--alt_background, .block-testimonials, .block-timeline, .block-projects, .block-agenda, .block-posts, .block-image.image-landscape, .block-persons, .block-organizations)
+                .block-content,
+                figure img
+                    width: columns(6)
+            .block-title h2
+                margin: auto
+                padding-left: 0
+                text-align: center
+                width: columns(8)
+
+        // ending blocks
+        .block:last-child
+            &.block-pages,
+            &.block-agenda
+                background-color: $color-background-alt
+                margin-bottom: 0
+                .block-content
+                    padding-bottom: var(--grid-gutter)
+                    padding-top: var(--grid-gutter)
+                    width: 100%
+            &.block-pages
+                ul
+                    display: block
+                    li + li
+                        margin-top: var(--grid-gutter)
+                    @include media-breakpoint-up(desktop)
+                        article
+                            .page-content
+                                margin-left: offset(2)
+                                width: columns(5)
+                            .media
+                                width: columns(5)

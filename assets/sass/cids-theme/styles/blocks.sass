@@ -1,3 +1,7 @@
+body:not(.page__home)
+    .block-title
+        text-align: center
+
 // top of blocks
 .block
     @include in-page-with-or-without-sidebar
@@ -293,7 +297,8 @@
             @include media-breakpoint-up(xl)
                 margin: auto
                 max-width: columns(8)
-// persons
+
+// Persons / people
 .block-persons
     div.persons
         .person-name
@@ -309,11 +314,53 @@
                 &:hover
                     a
                         @include link
+        .person:hover
+            .person-name a
+                @include link
+
+// organizations
+.block-organizations
+    &--grid
+        .organizations.with-summaries
+            .organization
+                &-content
+                    .organization-title
+                        @include h4
+                        margin-bottom: $spacing-1
+                &:hover
+                    .organization-title
+                        @include link
+        @include in-page-without-sidebar
+            .organizations:not(.block-organizations--map .organizations)
+                &.with-summaries
+                    @include grid(2)
+                    .organization
+                        width: columns(5)
+
+// chapters
 .block-chapter
     .chapter
         @include media-breakpoint-up(desktop)
             figure
                 margin-bottom: $spacing-5
+    @include in-page-with-or-without-sidebar
+        &--accent_background,
+        &--alt_background
+                margin: auto
+                width: columns(8)
+                .block-content
+                    .chapter
+                        gap: var(--grid-gutter)
+                        .text
+                            flex: 1
+                            order: 2
+                        figure
+                            width: columns(3)
+        &--alt_background
+            + .block-chapter--alt_background
+                .block-content
+                    border-top: 1px solid var(--color-border)
+                    padding-top: calc(var(--grid-gutter) * 2)
                 margin-left: auto
                 margin-right: auto
     &--alt_background
