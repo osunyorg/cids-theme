@@ -48,44 +48,60 @@ body.offcanvas-toc
             font-size: 0
             &::after
                 font-size: pxToRem(30)
+        .toc-pages
+            ol
+                padding: $spacing-5
+                li
+                    border-bottom: 1px solid $color-border
+                    margin-top: 0
+                    width: 100%
+                    &:not(last-child)
+                        margin-bottom: $spacing-1
+                        padding-bottom: $spacing-1
+                    a
+                        text-decoration: none
+                        &.active
+                            font-weight: bold
 
 .extended-summary
     margin-top: $spacing-6
-    > .container
-        position: relative
-        display: flex
-        gap: var(--grid-gutter)
     @include media-breakpoint-up(desktop)
-        + *
-            margin-top: $spacing-6
-        .toc-in-content
-            height: fit-content
-            position: sticky
-            top: 0
-            width: columns(3)
-            > p
-                font-weight: bold
-                margin-bottom: $spacing-1
-            @include in-page-without-sidebar
-                display: none
-        .sticky-toc
-            @include list-reset
-            li 
-                border-bottom: 1px solid $color-border
-                &:not(last-child)
+        > .container
+            position: relative
+            display: flex
+            gap: var(--grid-gutter)
+            + *
+                margin-top: $spacing-6
+            .toc-in-content
+                height: fit-content
+                position: sticky
+                top: 0
+                width: columns(3)
+                > p
+                    font-weight: bold
                     margin-bottom: $spacing-1
-                    padding-bottom: $spacing-1
-                a
-                    text-decoration: none
-        .block-summary
-            flex: 1
-            margin-top: 0
-            margin-bottom: 0
-            .container
-                // remove default settings
-                margin: 0
-                padding: 0
-                max-width: unset
-            .container,
-            .block-content
-                width: 100% !important
+                @include in-page-without-sidebar
+                    display: none
+            .sticky-toc
+                @include list-reset
+                li
+                    &:not(last-child)
+                        margin-bottom: $spacing-1
+                        padding-bottom: $spacing-1
+                    a
+                        text-decoration: none
+            .block-summary
+                flex: 1
+                margin-top: 0
+                margin-bottom: 0
+                .container
+                    // remove default settings
+                    margin: 0
+                    padding: 0
+                    max-width: unset
+                .container,
+                .block-content
+                    width: 100% !important
+    @include media-breakpoint-down(desktop)
+        .toc-in-content
+            display: none
