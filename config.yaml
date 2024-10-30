@@ -2,7 +2,7 @@ theme: osuny
 params:
   logo:
     header: "/assets/images/logo.svg"
-    footer: "/assets/images/logos/cids.svg"
+    footer: "/assets/images/logo-footer.svg"
   menu:
     dropdown:
       linkToLevel1: true
