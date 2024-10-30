@@ -13,20 +13,14 @@
                 .page__home &
                     width: columns(8)
 
+.block-summary,
+.lead
+    @include in-page-without-sidebar
+        margin-bottom: $spacing-6
+        margin-left: auto
+        margin-right: auto
+        text-align: center
 .block-summary
     @include in-page-without-sidebar
         .lead
-            text-align: center
-            @include media-breakpoint-up(desktop)
-                margin: auto
-                width: columns(9)
-
-.toc-container
-    @include in-page-with-sidebar
-        width: columnns(3)
-    @include media-breakpoint-up(desktop)
-        + .block-summary 
-            padding-bottom: $spacing-6
-            @include in-page-with-sidebar
-                .lead
-                    padding-left: offset(2)
+            width: columns(9)

@@ -1,13 +1,90 @@
 .document-content
-  > .toc-cta
-    position: fixed
-    top: 0
-    z-index: 1000
-    width: auto
-    left: 0
-    transform: translateX(-100%)
-    transition: .3s ease-in-out
-    &.is-visible, &:focus, &:focus-visible
-      transform: none
-    html:not(.is-scrolling-down) &
-      top: 0
+    @include media-breakpoint-up(desktop)
+        > .toc-cta
+            background: $color-background-alt
+            border-radius: 4px
+            font-weight: bold
+            left: var(--grid-gutter)
+            padding: space() $spacing-2
+            pointer-events: none
+            position: fixed
+            top: 0
+            transform: translateY(calc(-100%))
+            opacity: 0
+            transition: transform .6s ease-in-out, opacity .3s ease-in-out
+            width: auto
+            z-index: 1000
+            button::after
+                margin-right: 0
+                width: auto
+            &.is-visible, &:focus, &:focus-visible
+                opacity: 1
+                transform: translateY(var(--grid-gutter))
+                transition: transform .6s ease-in-out, opacity .3s ease-in-out
+            html:not(.is-scrolling-down) &
+                top: 0
+                transform: translateY(var(--header-height))
+
+// hide button when offcanva oppened
+.has-offcanvas-opened
+    .toc-cta,
+    .toc-cta.is-visible
+        opacity: 0
+        pointer-events: none
+
+// toc container
+body.offcanvas-toc
+    .toc-container
+        .toc-title,
+        button
+            line-height: 1
+        .toc-title
+            padding-top: $spacing-4
+            padding-bottom: $spacing-4
+            font-weight: bold
+        button
+            top: $spacing-2
+            font-size: 0
+            &::after
+                font-size: pxToRem(30)
+
+.extended-summary
+    margin-top: $spacing-6
+    > .container
+        position: relative
+        display: flex
+        gap: var(--grid-gutter)
+    @include media-breakpoint-up(desktop)
+        + *
+            margin-top: $spacing-6
+        .toc-in-content
+            height: fit-content
+            position: sticky
+            top: 0
+            width: columns(3)
+            > p
+                font-weight: bold
+                margin-bottom: $spacing-1
+            @include in-page-without-sidebar
+                display: none
+        .sticky-toc
+            @include list-reset
+            li 
+                border-bottom: 1px solid $color-border
+                &:not(last-child)
+                    margin-bottom: $spacing-1
+                    padding-bottom: $spacing-1
+                a
+                    text-decoration: none
+        .block-summary
+            flex: 1
+            margin-top: 0
+            margin-bottom: 0
+            .container
+                // remove default settings
+                margin: 0
+                padding: 0
+                max-width: unset
+            .container,
+            .block-content
+                width: 100% !important

@@ -1,6 +1,11 @@
 <div class="extended-summary">
-  <ul class="sticky-toc">
-    {{ partial "blocks/toc.html" .context.Params.contents }}
-  </ul>
-  {{- partial "commons/summary-in-content.html" . -}}
+  <div class="container">
+    <div class="toc-in-content">
+      <p role="heading" aria-level="2">{{ i18n "commons.toc" }}</p>
+      <ul class="sticky-toc">
+        {{ partial "blocks/toc.html" .context.Params.contents }}
+      </ul>
+    </div>
+    {{- partial "commons/summary-in-content.html" . -}}
+  </div>
 </div>
