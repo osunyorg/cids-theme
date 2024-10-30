@@ -204,6 +204,31 @@
                 + .page
                     margin-top: 0
                     padding-top: $spacing-4
+.block-key_figures
+    ul
+        li 
+            border-top: 1px solid var(--color-border)
+            padding-top: var(--grid-gutter)
+            span
+                align-items: center
+                display: flex
+                white-space: unset
+                strong
+                    white-space: nowrap
+                    @include media-breakpoint-down(desktop)
+                        margin-right: $spacing-4
+            @include media-breakpoint-up(desktop)
+                padding-top: $spacing-5
+                &:nth-child(odd)
+                    padding-right: var(--grid-gutter)
+                &:nth-child(even)
+                    padding-left: var(--grid-gutter)
+                span
+                    gap: $spacing-5
+                    @include media-breakpoint-up(xxl)
+                        gap: $spacing-6
+        @include in-page-with-or-without-sidebar
+            grid-gap: $spacing-5 0
 .block-agenda
     .event-dates
         @include in-page-with-or-without-sidebar
@@ -341,7 +366,6 @@
             @include h2
         .description
             @include h6
-
         ul.links
             display: block
             @include in-page-with-or-without-sidebar
