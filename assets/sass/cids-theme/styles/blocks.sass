@@ -204,6 +204,7 @@
                 + .page
                     margin-top: 0
                     padding-top: $spacing-4
+// key figures
 .block-key_figures
     ul
         li 
@@ -382,3 +383,39 @@
                     @include lead
                     &:hover
                         @include link($color-electric-blue)
+
+// timeline : display flex and electrical blue
+.block-timeline
+    &--vertical
+        .timeline-event
+            &::before,
+            &::after
+                background-color: $color-electric-blue
+                @include media-breakpoint-up(desktop)
+                    left: var(--grid-gutter-negative)
+            &::before
+                height: pxToRem(20)
+                width: pxToRem(20)
+                margin-top: 0
+                margin-left: -(pxToRem(8))
+            &::after
+                width: pxToRem(4)
+            @include media-breakpoint-up(desktop)
+                display: flex
+                gap: var(--grid-gutter)
+                .title
+                    width: columns(3)
+                    @include media-breakpoint-up(xxl)
+                        width: columns(2)
+                div
+                    flex: 1
+
+// features
+.block-features
+    @include in-page-with-or-without-sidebar
+        ul
+            li
+                flex-direction: row-reverse
+                gap: var(--grid-gutter)
+                figure
+                    margin-right: 0
