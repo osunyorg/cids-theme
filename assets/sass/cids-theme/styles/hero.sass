@@ -15,8 +15,9 @@
 
 .block-summary,
 .lead
-    @include in-page-without-sidebar
+    @include in-page-with-or-without-sidebar
         margin-bottom: $spacing-6
+    @include in-page-without-sidebar
         margin-left: auto
         margin-right: auto
         text-align: center
