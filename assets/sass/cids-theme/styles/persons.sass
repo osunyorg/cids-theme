@@ -1,5 +1,9 @@
 .persons__page
     .hero
+        &,
+        .container
+            @include media-breakpoint-down(desktop)
+                margin-bottom: $spacing-6
         .content
             align-items: flex-start
             .hero-text
@@ -7,12 +11,15 @@
                 h1
                     width: columns(10)
             figure
-                margin-top: 0
-                position: absolute
-                top: calc(100% + (#{$spacing-5}))
-                width: columns(2)
-                @include media-breakpoint-up(xxl)
-                    width: columns(3)
+                @include media-breakpoint-up(desktop)
+                    margin-top: 0
+                    position: absolute
+                    top: calc(100% + (#{$spacing-5}))
+                    width: columns(2)
+                    @include media-breakpoint-up(xxl)
+                        width: columns(3)
+                @include media-breakpoint-down(desktop)
+                    margin-left: 0
     .document-content
         @include media-breakpoint-up(desktop)
             .informations
