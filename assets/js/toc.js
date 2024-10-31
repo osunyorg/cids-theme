@@ -2,7 +2,7 @@ window.cids = window.cids || {};
 
 window.cids.Toc = function () {
   this.summary = document.querySelector('.extended-summary');
-  if (!this.summary) {
+  if (!this.summary && window.innerWidth > 768) {
     return;
   }
   this.floatingToc = document.querySelector('.document-content > .toc-cta');

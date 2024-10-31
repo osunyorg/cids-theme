@@ -2,6 +2,11 @@ window.cids = window.cids || {};
 
 window.cids.HomeParallax = function () {
     this.hero = document.querySelector('.page__home .hero--with-image');
+
+    if (!this.hero) {
+        return;
+    }
+
     this.imageContainer = this.hero.querySelector('figure');
     this.titleContainer = this.hero.querySelector('.hero-text');
     this.title = this.hero.querySelector('h1');

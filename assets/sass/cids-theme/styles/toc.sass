@@ -30,8 +30,9 @@
 .has-offcanvas-opened
     .toc-cta,
     .toc-cta.is-visible
-        opacity: 0
-        pointer-events: none
+        @include media-breakpoint-up(desktop)
+            opacity: 0
+            pointer-events: none
 
 // toc container
 body.offcanvas-toc
@@ -50,7 +51,7 @@ body.offcanvas-toc
                 font-size: pxToRem(30)
         .toc-pages
             ol
-                padding: $spacing-5
+                padding: calc(#{$spacing-4} + var(--grid-gutter))
                 li
                     border-bottom: 1px solid $color-border
                     margin-top: 0
@@ -61,8 +62,9 @@ body.offcanvas-toc
                     a
                         text-decoration: none
                         &.active
-                            font-weight: bold
                             color: $color-electric-blue
+                @include media-breakpoint-up(desktop)
+                    padding: $spacing-5
 
 .extended-summary
     margin-top: $spacing-6

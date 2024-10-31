@@ -39,6 +39,7 @@ body:not(.page__home)
     // overrided block : add "read more" button
     &--grid
         .grid
+            @include grid(3, desktop)
             article
                 align-items: flex-start
                 .page-title
@@ -50,8 +51,8 @@ body:not(.page__home)
                     @extend .button
                 &:hover
                     .more
-                        background-color: $color-background-alt
-                        border-color: $color-background-alt
+                        background-color: var(--color-accent)
+                        color: var(--btn-hover-color)
                 .media
                     margin-bottom: 0
     &--list
@@ -136,7 +137,7 @@ body:not(.page__home)
                             display: none
             &:hover
                 .more
-                    background-color: var(--btn-hover-background)
+                    background-color: var(--color-accent)
                     color: var(--btn-hover-color)
             .media
                 margin-bottom: 0
@@ -149,7 +150,7 @@ body:not(.page__home)
                     margin-top: $spacing-6
                 &-title
                     padding: $spacing-5 columns(1)
-                    @include in-page-without-sidebar
+                    @include in-page-with-or-without-sidebar
                         @include h1
                     a
                         text-decoration: none
@@ -177,7 +178,7 @@ body:not(.page__home)
                     right: 0
                     width: columns(6)
                     z-index: -1
-                    @include in-page-without-sidebar
+                    @include in-page-with-or-without-sidebar
                         width: columns(10)
                 &:nth-child(odd)
                     .page-title
@@ -346,16 +347,20 @@ body:not(.page__home)
     @include in-page-with-or-without-sidebar
         &--accent_background,
         &--alt_background
-                margin: auto
-                width: columns(8)
-                .block-content
-                    .chapter
-                        gap: var(--grid-gutter)
-                        .text
-                            flex: 1
-                            order: 2
-                        figure
-                            width: columns(3)
+            margin: auto
+            .block-content
+                width: columns(9)
+                .chapter
+                    flex-direction: row
+                    .text
+                        flex: 1
+                        .block-title
+                            width: auto
+                    figure
+                        margin-bottom: var(--grid-gutter)
+                        margin-left: var(--grid-gutter)
+                        margin-top: var(--grid-gutter)
+                        width: columns(3)
         &--alt_background
             + .block-chapter--alt_background
                 .block-content
@@ -521,3 +526,12 @@ body:not(.page__home)
             img
                 width: 100% !important
                 object-fit: cover
+
+// call to action
+.block-call_to_action
+    @include in-page-with-or-without-sidebar
+        .block-content
+            .call_to_action
+                margin-right: var(--grid-gutter-negative)
+                > div
+                    margin-left: var(--grid-gutter-negative)
