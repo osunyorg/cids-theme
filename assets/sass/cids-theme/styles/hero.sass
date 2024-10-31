@@ -17,6 +17,7 @@
                 .page__home &
                     width: columns(8)
 
+// general properties for summary
 .block-summary,
 .lead
     @include in-page-without-sidebar
@@ -29,3 +30,21 @@
     @include in-page-without-sidebar
         .lead
             width: columns(9)
+
+@include media-breakpoint-up(desktop)
+    // sidebar
+    body:not(.full-width),
+    body.full-width
+        .section-sidebar.post-sidebar
+            width: columns(3)
+
+    // post page
+    .posts__page:not(.full-width),
+    .posts__page.full-width
+        .block-summary
+            margin-left: offset(3)
+        .post-sidebar > div
+            html:not(.is-scrolling-down) &,
+            &
+                position: relative
+                top: 0
