@@ -13,18 +13,20 @@ header#document-header
         .menu
             flex-wrap: wrap
             .nav-level-1:not(.upper-menu)
+                justify-content: flex-start
                 width: 100%
-                max-width: columns(12)
                 @include media-breakpoint-up(xl)
-                    max-width: columns(8)
-                @include media-breakpoint-up(xxl)
-                    max-width: columns(10)
+                    flex: 1
+                    justify-content: flex-end
                 @include media-breakpoint-down(xl)
                     padding-top: $spacing-4
+                    width: columns(12)
             @include media-breakpoint-down(xl)
                 .logo
                     img
                         height: pxToRem(75)
+            
+
             .upper-menu.nav-level-1
                 gap: 0
                 justify-content: flex-start
@@ -95,8 +97,7 @@ header#document-header
             .menu
                 align-items: flex-end
                 .nav-level-1:not(.upper-menu)
-                    justify-content: flex-end
-                    gap: $spacing-5
+                    gap: $spacing-3
                     li
                         span,
                         a
@@ -104,6 +105,8 @@ header#document-header
                             padding-bottom: 0
                             &:first-of-type
                                 padding-left: 0
+                    @include media-breakpoint-up(xxl)
+                        gap: $spacing-5
             .nav-level-1:not(.upper-menu) 
                 .dropdown-menu.is-titled
                     padding-bottom: $spacing-5
