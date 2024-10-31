@@ -44,6 +44,8 @@ params:
           desktop:  1920
         hero_single:
           desktop:  1920
+        item:
+          desktop:  1920
       organizations:
         hero:
           desktop:  1920
@@ -52,6 +54,9 @@ params:
           mobile:   400
           tablet:   800
           desktop:  1920
+        item:
+          tablet:   990
+          desktop:  990
       papers:
         hero:
           desktop:  1920
