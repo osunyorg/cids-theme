@@ -11,13 +11,20 @@ header#document-header
                     a
                         padding: 0
         .menu
+            flex-wrap: wrap
             .nav-level-1:not(.upper-menu)
-                flex-wrap: wrap
-                row-gap: $spacing-3 !important
-                @include media-breakpoint-up(desktop)
+                width: 100%
+                max-width: columns(12)
+                @include media-breakpoint-up(xl)
                     max-width: columns(8)
                 @include media-breakpoint-up(xxl)
                     max-width: columns(10)
+                @include media-breakpoint-down(xl)
+                    padding-top: $spacing-4
+            @include media-breakpoint-down(xl)
+                .logo
+                    img
+                        height: pxToRem(75)
             .upper-menu.nav-level-1
                 gap: 0
                 justify-content: flex-start
