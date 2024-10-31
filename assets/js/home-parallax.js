@@ -3,7 +3,7 @@ window.cids = window.cids || {};
 window.cids.HomeParallax = function () {
     this.hero = document.querySelector('.page__home .hero--with-image');
 
-    if (!this.hero) {
+    if (window.innerWidth < 768 || !this.hero) {
         return;
     }
 
