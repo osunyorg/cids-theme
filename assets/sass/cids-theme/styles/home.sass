@@ -61,3 +61,22 @@
                 &-subtitle
                     @include h2
                     font-family: $font-serif
+    .block-persons
+        @include media-breakpoint-up(desktop)
+            .container
+                padding-left: 0
+                padding-right: 0
+                width: 100%
+            .persons
+                padding-bottom: var(--grid-gutter)
+                padding-left: var(--grid-gutter)
+                padding-right: var(--grid-gutter)
+                overflow-x: auto
+                display: flex !important
+                scrollbar-width: none
+                &::-webkit-scrollbar
+                    display: none
+                .person
+                    flex: none
+                    width: columns(3)
+                
