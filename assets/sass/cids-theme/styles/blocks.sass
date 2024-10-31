@@ -441,6 +441,9 @@ body:not(.page__home)
 // timeline : display flex and electrical blue
 .block-timeline
     &--vertical
+        @include media-breakpoint-up(desktop)
+            .block-content
+                width: columns(8)
         .timeline-event
             &::before,
             &::after
