@@ -33,12 +33,13 @@ body:not(.page__home)
         .block:last-child
             &.block-pages,
             &.block-agenda
-                background-color: $color-background-alt
-                margin-bottom: 0
-                .block-content
-                    padding-bottom: var(--grid-gutter)
-                    padding-top: var(--grid-gutter)
-                    width: 100%
+                &--list
+                    background-color: $color-background-alt
+                    margin-bottom: 0
+                    .block-content
+                        padding-bottom: var(--grid-gutter)
+                        padding-top: var(--grid-gutter)
+                        width: 100%
             &.block-pages
                 ul
                     display: block

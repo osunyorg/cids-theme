@@ -46,6 +46,8 @@ body.offcanvas-toc
         left: 0
         right: auto
         transform: translateX(-100%)
+        @include media-breakpoint-up(desktop)
+            z-index: 1003
         .toc-title,
         button
             line-height: 1
@@ -53,6 +55,7 @@ body.offcanvas-toc
             padding-top: $spacing-4
             padding-bottom: $spacing-4
             font-weight: bold
+            padding-left: $spacing-5
         button
             top: $spacing-2
             font-size: 0
@@ -104,7 +107,6 @@ body.offcanvas-toc
             .block-summary
                 flex: 1
                 margin-top: 0
-                margin-bottom: 0
                 .container
                     // remove default settings
                     margin: 0
