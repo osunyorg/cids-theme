@@ -1,0 +1,30 @@
+.persons__page
+    .hero
+        .content
+            align-items: flex-start
+            .hero-text
+                text-align: left
+                h1
+                    width: columns(10)
+            figure
+                margin-top: 0
+                position: absolute
+                top: calc(100% + (#{$spacing-5}))
+                width: columns(2)
+                @include media-breakpoint-up(xxl)
+                    width: columns(3)
+    .document-content
+        @include media-breakpoint-up(desktop)
+            .informations
+                .biography
+                    grid-column: 6 / 13
+                    @include media-breakpoint-up(xxl)
+                        grid-column: 7 / 13
+                    .lead
+                        @include h3
+                        text-align: left
+            .contacts-details
+                margin-left: offset(5)
+                width: columns(6)
+                @include media-breakpoint-up(xxl)
+                    margin-left: offset(6)
