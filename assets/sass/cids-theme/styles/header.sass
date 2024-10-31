@@ -86,12 +86,14 @@ header#document-header
                         padding: 0
         @include media-breakpoint-up(desktop)
             .menu
+                align-items: flex-end
                 .nav-level-1:not(.upper-menu)
                     gap: $spacing-5
                     li
                         span,
                         a
                             @include signature
+                            padding-bottom: 0
                             &:first-of-type
                                 padding-left: 0
             .nav-level-1:not(.upper-menu) 
