@@ -366,7 +366,8 @@ body:not(.page__home)
     &--alt_background,
         @include media-breakpoint-up(desktop)
             // specific homepage (for mids) but will maybe be use elsewhere
-            .page__home &
+            @include in-page-without-sidebar
+                width: 100%
                 .block-content
                     .chapter
                         .top
@@ -381,6 +382,7 @@ body:not(.page__home)
                             display: flex
                             flex-direction: column-reverse
                             justify-content: space-between
+                            order: -1
                         figure
                             img
                                 aspect-ratio: 1
