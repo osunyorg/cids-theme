@@ -1,7 +1,14 @@
+{{$page_with_title := false }}
+
 <div class="extended-summary">
   <div class="container">
     <div class="toc-in-content">
-      <p role="heading" aria-level="2">{{ i18n "commons.toc" }}</p>
+      {{ range .context.Params.contents -}}
+        {{- if and (eq .template "title") .title (ne $page_with_title true) }}
+          {{ $page_with_title = true }}
+          <p role="heading" aria-level="2">{{ i18n "commons.toc" }}</p>
+        {{ end -}}
+      {{- end -}}
       <ul class="sticky-toc">
         {{ partial "blocks/toc.html" .context.Params.contents }}
       </ul>
