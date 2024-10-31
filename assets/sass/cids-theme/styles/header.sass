@@ -40,6 +40,8 @@ header#document-header
                         border-radius: pxToRem(20)
                         padding: space() $spacing-2
                         text-decoration: none
+                        &.active
+                            box-shadow: none
                         @include media-breakpoint-up(desktop)
                             padding: pxToRem(6) space(4)
                             border-radius: pxToRem(30)
