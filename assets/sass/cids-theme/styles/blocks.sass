@@ -31,6 +31,17 @@ body:not(.page__home)
         background: $color-background-alt
         margin-bottom: 0
         padding-top: var(--grid-gutter)
+        @include media-breakpoint-up(desktop)
+            padding-left: 0
+            padding-right: 0
+            width: 100%
+            h2
+                margin-left: auto
+                margin-right: auto
+                max-width: 100% !important
+                padding-left: $grid-margin
+                padding-right: $grid-margin
+                width: var(--grid-width)
         + .block-chapter--alt_background
             margin-top: 0
             padding-top: $spacing-2
@@ -309,8 +320,8 @@ body:not(.page__home)
             .person
                 text-align: left
                 &-name
-                    @include media-breakpoint-up(xl)
-                        @include h3
+                    @include media-breakpoint-up(desktop)
+                        font-size: $h6-size-desktop
                 &:hover
                     a
                         @include link
