@@ -37,6 +37,9 @@ body
                     background-color: var(--color-text)
                     color: var(--color-accent)
                     border-color: var(--color-text)
+        .block-pages--large .page
+            @include media-breakpoint-down(desktop)
+                background-color: $deep-blue-background-alt
         .block-testimonials blockquote p
             color: var(--color-text)
 

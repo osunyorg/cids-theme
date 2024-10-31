@@ -13,3 +13,66 @@ params:
     position: content
   toc:
     force_offcanvas: true
+  image_sizes:
+    design_system:
+      hero:
+        desktop:  1920
+      image:
+        mobile:   480x850
+        tablet:   768x1360
+        desktop:  1920x1920
+      persons:
+        desktop:  400
+    sections:
+      categories:
+        hero:
+          desktop:  1920
+        hero_term:
+          desktop:  1920
+      diplomas:
+        hero:
+          desktop:  1920
+        hero_single:
+          desktop:  1920
+      home:
+        hero:
+          mobile:   400
+          tablet:   800
+          desktop:  1920
+      events:
+        hero:
+          desktop:  1920
+        hero_single:
+          desktop:  1920
+      organizations:
+        hero:
+          desktop:  1920
+      pages:
+        hero:
+          mobile:   400
+          tablet:   800
+          desktop:  1920
+      papers:
+        hero:
+          desktop:  1920
+      posts:
+        hero:
+          desktop:  1920
+        hero_single:
+          desktop:  1920
+      projects:
+        hero:
+          desktop:  1920
+        hero_single:
+          desktop:  1920
+      programs:
+        hero:
+          desktop:  1920
+      publications:
+        hero:
+          desktop:  1920
+      locations:
+        hero:
+          desktop:  1920
+        hero_single:
+          desktop:  1920

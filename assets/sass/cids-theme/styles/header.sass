@@ -10,10 +10,6 @@ header#document-header
                     span,
                     a
                         padding: 0
-        @include media-breakpoint-down(desktop)
-            > .container.has-upper-menu
-                .menu.is-opened
-                    display: block
         .menu
             flex-wrap: wrap
             .nav-level-1:not(.upper-menu)
@@ -131,7 +127,19 @@ header#document-header
                         padding-top: $spacing-4
                         width: columns(4)
                 @include media-breakpoint-down(desktop)
-                    .dropdown-menu-title
-                        @include h3
-                    .dropdown-menu-lead
-                        margin-bottom: $spacing-2
+                    .dropdown-heading
+                        .dropdown-menu-title
+                            @include h3
+                        + .nav-level-2
+                            margin-top: $spacing-3
+                    ul
+                        li 
+                            a
+                                padding: 0
+                            + li
+                                padding-top: $spacing-2
+        @include media-breakpoint-down(desktop)
+            .menu
+                flex-wrap: nowrap
+                .upper-menu
+                    overflow-x: unset
