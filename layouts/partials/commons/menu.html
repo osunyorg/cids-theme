@@ -67,6 +67,7 @@
                   {{ $targetPage := strings.TrimPrefix "/" .target }}
                   {{ $targetPage = strings.TrimSuffix "/" $targetPage }}
                   {{ $indexPage := site.GetPage $targetPage }}
+
                   <div class="dropdown-menu-lead">{{ safeHTML $indexPage.Params.summary }}</div>
                 </div>
             {{ end -}}
