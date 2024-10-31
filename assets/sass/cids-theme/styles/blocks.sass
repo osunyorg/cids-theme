@@ -370,10 +370,10 @@ body:not(.page__home)
                 margin-right: auto
     &--alt_background,
         @include media-breakpoint-up(desktop)
-            // specific homepage (for mids) but will maybe be use elsewhere
-            @include in-page-without-sidebar
-                width: 100%
+            // homepage specific (for mids so far) but will maybe be use elsewhere
+            .page__home.full-width &
                 .block-content
+                    width: 100%
                     .chapter
                         .top
                             order: 1
@@ -389,6 +389,7 @@ body:not(.page__home)
                             justify-content: space-between
                             order: -1
                         figure
+                            margin: 0
                             img
                                 aspect-ratio: 1
                                 object-fit: cover
