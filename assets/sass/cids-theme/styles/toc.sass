@@ -24,7 +24,7 @@
                 transition: transform .6s ease-in-out, opacity .3s ease-in-out
             html:not(.is-scrolling-down) &
                 top: 0
-                transform: translateY(var(--header-height))
+                transform: translateY(calc(var(--header-height) + #{$spacing-2}))
 
 // hide button when offcanva oppened
 .has-offcanvas-opened
@@ -37,6 +37,9 @@
 // toc container
 body.offcanvas-toc
     .toc-container
+        left: 0
+        right: auto
+        transform: translateX(-100%)
         .toc-title,
         button
             line-height: 1
