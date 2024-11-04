@@ -1,4 +1,25 @@
-#search 
-    .pagefind-ui__form::after
-        font-size: $body-size-desktop
-        top: 3rem
+#search
+    @include media-breakpoint-up(desktop)
+        .pagefind-ui
+            &::before
+                height: space(43)
+            &__form
+                width: columns(12)
+                &::after
+                    font-size: $body-size-desktop
+                    top: 3rem
+            &__message
+                @include h2
+                text-align: left
+            &__results
+                margin-top: $spacing-4
+            &__result-thumb
+                grid-column: 10 / 13
+                grid-row: 1
+            &__result-image
+                aspect-ratio: unset
+                width: 100%
+            &__result-inner
+                grid-column: 1 / 9
+            &__result-title a
+                @include lead
