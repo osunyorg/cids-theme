@@ -1,0 +1,24 @@
+body.events__page
+    @include media-breakpoint-up(desktop)
+        .document-content
+            .block-summary
+                .lead
+                    p
+                        @include h3
+            .blocks,
+            .block-summary
+                .block-content
+                    margin-right: unset
+                    width: columns(6)
+            .block-persons
+                .block-content
+                    width: columns(8)
+                    .person
+                        gap: var(--grid-gutter)
+                        &-name
+                            @include h2
+                    .description
+                        margin-top: 0
+                        width: columns(6)
+                        @include media-breakpoint-up(xxl)
+                            margin-left: offset(0.5)
