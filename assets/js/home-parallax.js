@@ -7,7 +7,6 @@ window.cids.HomeParallax = function () {
         return;
     }
 
-    this.imageContainer = this.hero.querySelector('figure');
     this.titleContainer = this.hero.querySelector('.hero-text');
     this.title = this.hero.querySelector('h1');
 
@@ -22,12 +21,7 @@ window.cids.HomeParallax.prototype = {
     onScroll: function () {
         this.scrollY = window.scrollY;
 
-        this.translateImage();
         this.hideTitle();
-    },
-    translateImage: function() {
-        var translateTop = -this.scrollY * 0.3;
-        this.imageContainer.style.marginTop = `${translateTop}px`;
     },
     hideTitle: function() {
         this.title.style.setProperty('position', 'fixed')
@@ -40,7 +34,7 @@ window.cids.HomeParallax.prototype = {
     checkScrollPosition: function() {
         this.scrollY = window.scrollY;
         var scrollLimit = this.hero.offsetHeight;
-        console.log(this.scrollY, scrollLimit)
+
         if (this.scrollY > scrollLimit) {
             this.title.style.setProperty('opacity', '0');
         }
