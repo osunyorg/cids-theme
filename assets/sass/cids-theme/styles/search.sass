@@ -1,6 +1,38 @@
-#search
+// Search button / icon
+.pagefind-ui__toggle
+    align-items: center
+    display: flex
+    justify-content: center
+    &,
+    &:not(.pagefind-primary)
+        padding: 0
+    &,
+    &::after
+        color: var(--color-accent)
+    // after is used to crate a button of 36x36px but we need the clickable area to be of 42x42px
+    &::after
+        align-items: center
+        display: flex
+        border: 1px solid var(--color-accent)
+        border-radius:  100%
+        content: ''
+        height: pxToRem(36)
+        justify-content: center
+        position: absolute
+        transition: background-color .3s ease, border-color .3s ease
+        width: pxToRem(36)
+    &:hover::after
+        background-color: rgba($header-color, 0.2)
+        border-color: transparent
     @include media-breakpoint-up(desktop)
-        .pagefind-ui
+        height: pxToRem(42)
+        width: pxToRem(42)
+// Search modal    
+#search
+    .pagefind-ui
+        &__result-title a
+            @include lead
+        @include media-breakpoint-up(desktop)
             &::before
                 height: space(43)
             &__form
@@ -21,5 +53,3 @@
                 width: 100%
             &__result-inner
                 grid-column: 1 / 9
-            &__result-title a
-                @include lead
