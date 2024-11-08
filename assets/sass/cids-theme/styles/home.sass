@@ -18,11 +18,19 @@
             figure
                 position: static
                 margin-top: 0
-                .quote-background
-                    bottom: 0
-                    position: absolute
-                    right: 0
-                    transform: translateY(25%)
+                @include media-breakpoint-up(desktop)
+                    picture
+                        position: relative
+                        z-index: 2
+                    .quote-background
+                        bottom: 0
+                        position: absolute
+                        right: 0
+                        transform: translateY(25%)
+                        z-index: 1
+                        svg
+                            height: 100%
+                            width: columns(5)
         &.is-loaded .hero .hero-text h1
             opacity: 1
     .block-class-centered-title
