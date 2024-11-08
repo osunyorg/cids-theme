@@ -1,6 +1,8 @@
 .page__home
     @include media-breakpoint-up(desktop)
         .hero
+            .content
+                position: relative
             .hero-text
                 align-items: center
                 display: flex
@@ -14,7 +16,13 @@
                     width: columns(10)
                     opacity: 0
             figure
+                position: static
                 margin-top: 0
+                .quote-background
+                    bottom: 0
+                    position: absolute
+                    right: 0
+                    transform: translateY(25%)
         &.is-loaded .hero .hero-text h1
             opacity: 1
     .block-class-centered-title
