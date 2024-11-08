@@ -462,6 +462,10 @@ body:not(.page__home)
                     @include lead
                     &:hover
                         @include link($color-electric-blue)
+    &:not(.block-class-with_large_links)
+        @include media-breakpoint-up(desktop)
+            li
+                height: 100%
 
 // timeline : display flex and electrical blue
 .block-timeline
