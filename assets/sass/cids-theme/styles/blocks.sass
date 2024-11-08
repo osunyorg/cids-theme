@@ -279,14 +279,28 @@ body:not(.page__home)
                             @include h2
 // QUOTE / TESTIMONIALS
 .block-testimonials
-    .testimonials
-        padding-top: $spacing-5
-        padding-bottom: $spacing-4
-        background:
-            image: url('/assets/images/pattern_blue.svg')
-            position: center
-            repeat: no-repeat
-            size: contain
+    .block-content
+        position: relative
+        @include media-breakpoint-down(desktop)
+            background:
+                image: url('/assets/images/pattern_blue.svg')
+                position: center
+                repeat: no-repeat
+                size: contain
+            .quote-background
+                display: none
+        .quote-background
+            bottom: 0
+            left: 50%
+            position: absolute
+            top: 0
+            transform: translateX(-50%)
+            z-index: -1
+            svg
+                height: 100%
+        .testimonials
+            padding-bottom: $spacing-4
+            padding-top: $spacing-5
     .testimonial
         @include in-page-with-or-without-sidebar
             padding-left: 0
