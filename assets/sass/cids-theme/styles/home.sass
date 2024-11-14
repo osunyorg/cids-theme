@@ -62,21 +62,6 @@
                 @include h2
                 font-size: $h2-size
                 font-family: $font-serif
-    .block-posts,
-    .block-agenda
-        @include media-breakpoint-up(desktop)
-            .top
-                margin-bottom: space(25)
-                .block-title
-                    @include h2
-                    a::after
-                        display: none
-            .post,
-            .event
-                &-title,
-                &-subtitle
-                    @include h2
-                    font-family: $font-serif
     .block-persons
         @include media-breakpoint-up(desktop)
             .container

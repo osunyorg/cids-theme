@@ -45,6 +45,30 @@ body:not(.page__home)
         + .block-chapter--alt_background
             margin-top: 0
             padding-top: $spacing-2
+// Posts and events : big titles
+.block-posts,
+.block-agenda
+    @include media-breakpoint-up(desktop)
+        .top
+            margin-bottom: space(25)
+            .block-title
+                @include h2
+                a::after
+                    display: none
+        .post,
+        .event
+            &-title,
+            &-subtitle
+                @include h2
+                font-family: $font-serif
+// posts
+.block-posts
+    @include media-breakpoint-up(desktop)
+        &--list
+            .post-content
+                flex: 1
+                > div
+                    width: columns(6)
 // pages
 .block-pages
     // overrided block : add "read more" button
@@ -243,6 +267,7 @@ body:not(.page__home)
                         gap: $spacing-6
         @include in-page-with-or-without-sidebar
             grid-gap: $spacing-5 0
+// block events, agenda
 .block-agenda
     .event-dates
         @include in-page-with-or-without-sidebar
@@ -258,12 +283,17 @@ body:not(.page__home)
                 flex-direction: row-reverse
             @include in-page-without-sidebar
                 &-content
-                    display: flex
-                    flex-direction: row-reverse
                     flex: 1
                     hgroup,
                     > .event-title
+                        grid-row: 1 / 4
                         flex: 1
+                    .event-dates
+                        grid-row: 1 / 2
+                    .event-time
+                        grid-column: 1 / 5
+                        grid-row: 2 / 2
+                        margin-top: 0
                 .media,
                 .event-dates
                     width: columns(3)
@@ -326,6 +356,9 @@ body:not(.page__home)
 
 // Persons / people
 .block-persons
+    + .block-persons
+        border-top: 1px solid $color-border
+        padding-top: var(--block-space-y)
     div.persons
         .person-name
                 font-family: $font-serif
@@ -343,6 +376,9 @@ body:not(.page__home)
         .person:hover
             .person-name a
                 @include link
+    @include media-breakpoint-up(desktop)
+        .top + .persons
+            margin-top: $spacing-5
 
 // organizations
 .block-organizations
