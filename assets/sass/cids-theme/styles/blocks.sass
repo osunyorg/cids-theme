@@ -585,14 +585,17 @@ body:not(.page__home)
         @include in-page-with-or-without-sidebar
             display: block
         li
-            flex-direction: row-reverse
-            justify-content: space-between
+            flex-direction: column-reverse
             &::before
                 @extend .button-accent
                 content: 'Download'
                 height: unset
                 width: unset
                 margin-right: 0
+                @include media-breakpoint-down(desktop)
+                    margin-top: $spacing-2
             @include media-breakpoint-up(desktop)
+                flex-direction: row-reverse
+                justify-content: space-between
                 figure
                     width: columns(4)
