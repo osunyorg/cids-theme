@@ -47,7 +47,8 @@ body:not(.page__home)
             padding-top: $spacing-2
 // Posts and events : big titles
 .block-posts,
-.block-agenda
+.block-agenda,
+.events--list
     @include media-breakpoint-up(desktop)
         .top
             margin-bottom: space(25)
@@ -277,7 +278,8 @@ body:not(.page__home)
                 @include media-breakpoint-up(desktop)
                     @include h3
                     font-family: $font-sans-serif
-    &--list
+.events--list,
+.block-agenda--list
         .event
             @include media-breakpoint-up(desktop)
                 flex-direction: row-reverse
@@ -605,6 +607,8 @@ body:not(.page__home)
 
 // call to action
 .block-call_to_action
+    .top .block-title
+        text-align: left
     @include in-page-with-or-without-sidebar
         .block-content
             .call_to_action
