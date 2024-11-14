@@ -554,12 +554,17 @@ body:not(.page__home)
 
 // images
 .block-image
-    figure
-        margin-left: var(--grid-gutter-negative) !important
-        picture
-            img
-                width: 100% !important
-                object-fit: cover
+    &.image-landscape
+        .container
+            margin-left: var(--grid-gutter-negative)
+            margin-right: var(--grid-gutter-negative)
+            padding: 0
+            width: 100%
+        figure
+            picture
+                img
+                    width: 100% !important
+                    object-fit: cover
 
 // call to action
 .block-call_to_action
