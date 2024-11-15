@@ -8,3 +8,6 @@ commons:
   footer:
     partners:
       title: The CIDS, a joint center of
+persons:
+  taxonomies:
+    a11y_title: Go to the ‘{{ .category }}’ category 
