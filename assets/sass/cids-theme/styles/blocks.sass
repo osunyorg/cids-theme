@@ -68,8 +68,6 @@ body:not(.page__home)
         &--list
             .post-content
                 flex: 1
-                > div
-                    width: columns(6)
 // pages
 .block-pages
     // overrided block : add "read more" button
@@ -270,9 +268,9 @@ body:not(.page__home)
             grid-gap: $spacing-5 0
 // block events, agenda
 .block-agenda
-    .event-dates
+    .event-schedule
         @include in-page-with-or-without-sidebar
-            span,
+            .event-dates,
             .event-time
                 font-family: $font-sans-serif
                 @include media-breakpoint-up(desktop)
@@ -290,18 +288,22 @@ body:not(.page__home)
                     > .event-title
                         grid-row: 1 / 4
                         flex: 1
-                    .event-dates
+                    .event-schedule
                         grid-row: 1 / 2
-                    .event-time
-                        grid-column: 1 / 5
-                        grid-row: 2 / 2
-                        margin-top: 0
+                        p + p 
+                            margin-top: 0
                 .media,
-                .event-dates
+                .event-schedule
                     width: columns(3)
-            &-dates
+            &-schedule
                 @include in-page-with-or-without-sidebar
-                    span,
+                    .event-dates
+                        span
+                            display: inline
+                            &:last-child
+                                &::before
+                                    display: inline
+                    .event-dates,
                     .event-time
                         font-family: $font-sans-serif
                         @include media-breakpoint-up(desktop)
@@ -309,16 +311,20 @@ body:not(.page__home)
                             font-family: $font-sans-serif
                         @include media-breakpoint-up(xxl)
                             @include h2
+            @include media-breakpoint-down(desktop)
+                .event-schedule
+                    margin-top: $spacing-2
 // QUOTE / TESTIMONIALS
 .block-testimonials
     .block-content
         position: relative
         @include media-breakpoint-down(desktop)
-            background:
-                image: url('/assets/images/pattern_blue.svg')
-                position: center
-                repeat: no-repeat
-                size: contain
+            blockquote
+                background:
+                    image: url('/assets/images/pattern_blue.svg')
+                    position: center
+                    repeat: no-repeat
+                    size: contain
             .quote-background
                 display: none
         .quote-background

@@ -13,6 +13,9 @@ params:
     position: content
   toc:
     force_offcanvas: true
+  events:
+    date_format: "01.02"
+    time_format: ":time_short"
   image_sizes:
     blocks:
       image:

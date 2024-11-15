@@ -35,7 +35,12 @@
             opacity: 1
     .block-class-centered-title
         + .block-testimonials
-            margin-top: space(25)
+            @include media-breakpoint-up(desktop)
+                margin-top: space(25)
+            @include media-breakpoint-down(desktop)
+                .block-content
+                    .testimonials
+                        padding-top: $spacing-3
     .block-class-centered-title,
     .block-chapter:not(.block-chapter--alt_background)
         @include media-breakpoint-up(desktop)
