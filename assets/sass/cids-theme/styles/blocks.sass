@@ -645,3 +645,17 @@ body:not(.page__home)
                 justify-content: space-between
                 figure
                     width: columns(4)
+// posts signatures
+.posts__page 
+    .block-signatures
+        .signatures
+            li
+                .avatar
+                    width: columns(1.5) !important
+                .author-content 
+                    margin-left: var(--grid-gutter)
+                    .more
+                        @include link($color-electric-blue)
+                &:hover .more
+                    text-decoration-color: $color-electric-blue
+                    

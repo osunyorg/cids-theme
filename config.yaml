@@ -16,6 +16,9 @@ params:
   events:
     date_format: "01.02"
     time_format: ":time_short"
+  posts:
+    single:
+      author_signature: true
   image_sizes:
     blocks:
       image:
