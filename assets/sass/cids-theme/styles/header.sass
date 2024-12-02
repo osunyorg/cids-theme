@@ -73,6 +73,12 @@ header#document-header
                         margin-left: $spacing-2
                         @include media-breakpoint-down(desktop)
                             margin-left: auto
+                            button
+                                display: flex
+                                height: pxToRem(44)
+                                width: pxToRem(44)
+                            span
+                                display: none
             @include media-breakpoint-up(desktop)
                 + nav
                     padding-top: 0
