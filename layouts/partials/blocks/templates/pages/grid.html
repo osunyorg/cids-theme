@@ -6,15 +6,15 @@
 )}}
 <div class="grid">
   {{ range .pages }}
-    {{- $file := false -}}
+    {{- $page := false -}}
     {{/*  Check if . is a map or page url, necessary when pages/grid is called outside block context */}}
     {{ if reflect.IsMap . }}
-      {{ $file = .file }}
+      {{ $page = .path }}
     {{ else }}
-      {{ $file = . }}
+      {{ $page = . }}
     {{ end }}
 
-    {{ $page := site.GetPage $file }}
+    {{ $page := site.GetPage $page }}
 
     {{ with $page }}
       <article>
