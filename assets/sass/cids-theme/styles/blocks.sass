@@ -546,10 +546,10 @@ body:not(.page__home)
     @include in-page-with-or-without-sidebar
         ul
             li
-                flex-direction: row-reverse
                 gap: var(--grid-gutter)
                 figure
                     margin-right: 0
+                    order: -1
 
 // datatable
 .block-datatable
