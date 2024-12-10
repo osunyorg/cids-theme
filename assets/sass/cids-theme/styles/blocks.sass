@@ -666,3 +666,11 @@ body:not(.page__home)
                 &:hover .more
                     text-decoration-color: $color-electric-blue
                     
+// pagination
+.document-content
+    .block-siblings-navigation
+        .events__page &
+            @include media-breakpoint-up(desktop)
+                .block-content
+                    margin-right: 0
+                    margin-left: auto
