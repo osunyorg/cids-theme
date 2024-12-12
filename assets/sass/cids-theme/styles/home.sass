@@ -67,8 +67,13 @@
                 @include h2
                 font-size: $h2-size
                 font-family: $font-serif
-    .block-persons
-        @include media-breakpoint-up(desktop)
+    @include media-breakpoint-up(desktop)
+        main .block.block-title:not(.block-class-with-alt_background)
+            margin-bottom: $spacing-5
+            h2
+                max-width: 100%
+                text-align: center
+        .block-persons
             .container
                 padding-left: 0
                 padding-right: 0
@@ -87,4 +92,7 @@
                     width: columns(3)
                     @include media-breakpoint-up(xxl)
                         width: columns(2)
-                
+        .block-features
+            ul
+                li
+                    text-align: center

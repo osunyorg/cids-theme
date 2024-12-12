@@ -23,14 +23,15 @@ body:not(.page__home)
                     text-align: center
                     margin-bottom: 0
 // titles
-.block-title
+.block.block-title
     @include media-breakpoint-up(desktop)
         margin-bottom: $spacing-5
     // block titles before alt content
     &.block-class-with-alt_background
         background: $color-background-alt
         margin-bottom: 0
-        padding-top: var(--grid-gutter)
+        padding-top: var(--grid-gutter) !important
+        padding-bottom: $spacing-5
         @include media-breakpoint-up(desktop)
             padding-left: 0
             padding-right: 0
