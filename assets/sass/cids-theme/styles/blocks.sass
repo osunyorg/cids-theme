@@ -242,6 +242,7 @@ body:not(.page__home)
                     padding-top: $spacing-4
 // key figures
 .block-key_figures
+    @include media-breakpoint-up(desktop)
     ul
         li 
             border-top: 1px solid var(--color-border)
@@ -257,13 +258,15 @@ body:not(.page__home)
             @include media-breakpoint-up(desktop)
                 padding-top: $spacing-5
                 &:nth-child(odd)
-                    padding-right: var(--grid-gutter)
+                    padding-left: offset(2)
                 &:nth-child(even)
                     padding-left: var(--grid-gutter)
+                    padding-right: offset(2)
                 span
                     gap: $spacing-5
+                    width: columns(4)
                     @include media-breakpoint-up(xxl)
-                        gap: $spacing-6
+                        gap: $spacing-5
         @include in-page-with-or-without-sidebar
             grid-gap: $spacing-5 0
 // block events, agenda
