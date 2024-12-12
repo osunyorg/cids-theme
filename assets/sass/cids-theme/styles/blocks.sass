@@ -384,6 +384,10 @@ body:not(.page__home)
                 &:hover
                     a
                         @include link
+        @include in-page-with-sidebar
+            @include grid(2, desktop)
+            .avatar
+                width: columns(2)
         .person:hover
             .person-name a
                 @include link
