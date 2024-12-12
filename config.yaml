@@ -20,6 +20,9 @@ params:
     single:
       author_signature: true
   image_sizes:
+    design_system:
+      lightbox:
+        disabled: true
     blocks:
       image:
         desktop:  2600x2600
