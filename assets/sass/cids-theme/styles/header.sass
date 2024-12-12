@@ -22,7 +22,6 @@ header#document-header
                 @include media-breakpoint-up(desktop)
                     justify-content: flex-end
                     margin-bottom: 0
-                    padding-top: $header-upper-menu-padding-y
                     width: columns(12)
                 > li
                     line-height: 100%
@@ -80,8 +79,9 @@ header#document-header
                             span
                                 display: none
             @include media-breakpoint-up(desktop)
-                + nav
-                    padding-top: 0
+                background: transparent
+                position: absolute
+                top: $header-nav-padding-y-desktop
             @include media-breakpoint-down(desktop)
                 > .container
                     padding-left: var(--grid-gutter)
