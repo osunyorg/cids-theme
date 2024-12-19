@@ -4,8 +4,13 @@ params:
     header: "/assets/images/logo.svg"
     footer: "/assets/images/logo-footer.svg"
   menu:
-    dropdown:
-      linkToLevel1: true
+    primary:
+      level_2:
+        title:
+          active: true
+          summary:
+            active: true
+            truncate: 0
   search:
     active: true
     position: upper-menu
