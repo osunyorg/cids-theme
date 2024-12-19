@@ -41,10 +41,10 @@ header#document-header
                                 border-radius: pxToRem(30)
                             @include media-breakpoint-down(desktop)
                                 line-height: inherit
-                            &:not(.external-site)
+                            &[href="/"]
                                 background: $header-color
                                 color: $header-background
-                            &.external-site
+                            &:not([href="/"])
                                 background: rgba($header-color, 0.2) // --color accent
                                 color: $header-color
                                 &::after
@@ -52,18 +52,18 @@ header#document-header
                         &:first-of-type
                             a
                                 padding-left: space(4)
-                            > a.external-site
+                            > a:not([href="/"])
                                 border-bottom-right-radius: 0
                                 border-top-right-radius: 0
                                 margin-right: -$spacing-2
                                 padding-right: space(7)
                                 @include media-breakpoint-down(desktop)
                                     margin-right: -(space(5))
-                            > a:not(.external-site)
+                            > a[href="/"]
                                 @include media-breakpoint-up(desktop)
                                     margin-left: -$spacing-2
                         &:nth-child(2)
-                            > a.external-site
+                            > a:not([href="/"])
                                 border-bottom-left-radius: 0
                                 border-top-left-radius: 0
                                 margin-left: -$spacing-2
@@ -126,11 +126,11 @@ header#document-header
                                 text-decoration-color: rgba($header-color, .5)
                                 text-underline-offset: pxToRem(10)
                                 margin-bottom: $spacing-3
-                            .dropdown-menu-lead
-                                @include lead-hero
-                                font-size: $lead-hero-size
-                                line-height: $lead-hero-line-height
-                            .dropdown-heading
+                            // .dropdown-menu-summary
+                            //     @include lead-hero
+                            //     font-size: $lead-hero-size
+                            //     line-height: $lead-hero-line-height
+                            .dropdown-menu-heading
                                 margin-right: offset(1)
                                 width: columns(7)
                             .nav-level-2
@@ -138,7 +138,7 @@ header#document-header
                                 width: columns(4)
             @include media-breakpoint-down(desktop)
                 .nav-level-1
-                    .dropdown-heading
+                    .dropdown-menu-heading
                         .dropdown-menu-title
                             @include h3
                         + .nav-level-2
