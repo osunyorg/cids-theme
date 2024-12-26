@@ -13,7 +13,8 @@ params:
             truncate: 0
   search:
     active: true
-    position: upper-menu
+    positions:
+      - upper-menu
   summary:
     position: content
   toc:

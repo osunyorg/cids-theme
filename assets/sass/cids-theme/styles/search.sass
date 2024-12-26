@@ -1,10 +1,10 @@
 // Search button / icon
-.pagefind-ui__toggle
+.search-button
     align-items: center
     display: flex
     justify-content: center
     &,
-    &:not(.pagefind-primary)
+    &:not(.search-button--primary)
         padding: 0
     &,
     &::after
@@ -15,7 +15,6 @@
         display: flex
         border: 1px solid var(--color-accent)
         border-radius:  100%
-        content: ''
         height: pxToRem(36)
         justify-content: center
         position: absolute
@@ -29,6 +28,7 @@
         width: pxToRem(42)
 // Search modal    
 #search
+    z-index: $zindex-search
     .pagefind-ui
         &__result-title a
             @include lead
