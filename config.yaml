@@ -25,6 +25,10 @@ params:
   posts:
     single:
       author_signature: true
+  persons:
+    single:
+      taxonomies:
+        position: content
   image_sizes:
     design_system:
       lightbox:

@@ -21,8 +21,8 @@
                 h1
                     width: columns(10)
             figure
-                position: absolute
                 @include media-breakpoint-up(desktop)
+                    position: absolute
                     margin-top: 0
                     top: calc(100% + #{$spacing-3})
                     width: columns(2.5)
@@ -30,56 +30,8 @@
                         top: calc(100% + #{$spacing-5})
                         width: columns(3)
                 @include media-breakpoint-down(desktop)
-                    margin-top: 0
-                    right: 0
-                    top: 100%
-                    width: columns(5)
-        .person-aside
-            z-index: 3
-            ul
-                @include list-reset
-            @include media-breakpoint-up(desktop)
-                position: absolute
-                top: calc(100% + #{$spacing-3} + #{columns(2.5)})
-                padding-top: $spacing-2
-                @include media-breakpoint-up(xxl)
-                    top: calc(100% + #{$spacing-5} + #{columns(3)})
-                    padding-top: $spacing-3
-            .taxonomy
-                @include meta
-                a:not(:hover)
-                    text-decoration: none
-            p
-                @include h4
-                white-space: nowrap
-                margin-bottom: space()
-                @include media-breakpoint-up(desktop)
-                    margin-bottom: $spacing-1
-                @include media-breakpoint-down(desktop)
-                    width: columns(7)
-            ul + p,
-            div + div
-                margin-top: $spacing-3
-                @include media-breakpoint-up(desktop)
+                    margin-bottom: 0
                     margin-top: $spacing-4
-            .person-socials
-                a::after
-                    display: none
-                .socials-list
-                    @include meta
-                    align-items: flex-start
-                    display: flex
-                    flex-direction: column
-                .email
-                    order: 10
-                    margin-top: $spacing-2
-                    @extend .button-accent
-                    --btn-color: #{$color-background}
-                    --btn-background: #{$color-electric-blue}
-                    --btn-hover-background: #{alphaColor($color-electric-blue, 0.85)}
-                    a
-                        color: var(--btn-color)
-                        text-decoration: none
     .document-content
         @include media-breakpoint-up(desktop)
             .informations
@@ -90,8 +42,54 @@
                     .lead
                         @include h3
                         text-align: left
-            .contacts-details
-                margin-left: offset(5)
-                width: columns(6)
+        .contacts-details
+            position: absolute
+            margin-top: calc(var(--grid-gutter))
+            @include media-breakpoint-down(desktop)
+                margin-top: calc(var(--grid-gutter) + #{space(3)})
+            &::before
+                @include h4
+                display: block
+                content: 'Contact'
+                margin-bottom: $spacing-1
+            ul
+                display: flex
+                flex-direction: column
+                li 
+                    @include meta
+                    > span
+                        @extend .sr-only
+                    &.email
+                        @extend .button-accent
+                        --btn-color: #{$color-background}
+                        --btn-background: #{$color-electric-blue}
+                        --btn-hover-background: #{alphaColor($color-electric-blue, 0.85)}
+                        --btn-padding: 12px 30px
+                        min-width: unset
+                        order: 10
+                        a
+                            color: var(--btn-color)
+                            text-decoration: none
+                            font-size: 0
+                            &::before
+                                @include meta
+                                content: 'Mail'
+                                display: block
+        .persons-taxonomies
+            .taxonomy-title
+                @include h4
+                display: block
+                margin-bottom: $spacing-1
+            .taxonomy-children
+                @include meta
+                a:not(:hover)
+                    text-decoration: none
+            @include media-breakpoint-up(desktop)
+                display: flex
+                flex-direction: column
+                left: var(--grid-gutter)
+                margin-top: space(5)
+                position: absolute
+                top: columns(2.5)
                 @include media-breakpoint-up(xxl)
-                    margin-left: offset(6)
+                    top: columns(3)
