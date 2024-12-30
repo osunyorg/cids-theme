@@ -19,6 +19,12 @@ footer,
 main > .quote-background
     display: none
 
+// remove toc from specific pages
+body.page-no-toc
+    @include media-breakpoint-down(desktop)
+        .toc-cta
+            @extend .sr-only
+
 // Bloc sizes
 body:not(.page__home)
     .document-content
