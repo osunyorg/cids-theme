@@ -4,6 +4,8 @@ body:not(.page__home)
 
 // top of blocks
 .block
+    @include media-breakpoint-up(desktop)
+        --block-space-y: #{$block-space-y-desktop}
     @include in-page-with-or-without-sidebar
         &:not(.block-call_to_action, .block-links)
             .top
@@ -31,7 +33,7 @@ body:not(.page__home)
         background: $color-background-alt
         margin-bottom: 0
         padding-top: var(--grid-gutter) !important
-        padding-bottom: $spacing-5
+        padding-bottom: $spacing-4
         @include media-breakpoint-up(desktop)
             padding-left: 0
             padding-right: 0
@@ -46,6 +48,7 @@ body:not(.page__home)
         + .block-chapter--alt_background
             margin-top: 0
             padding-top: $spacing-2
+
 // Posts and events : big titles
 .block-posts,
 .block-agenda,
@@ -63,12 +66,16 @@ body:not(.page__home)
             &-subtitle
                 @include h2
                 font-family: $font-serif
+            &:last-child
+                border-bottom: none
 // posts
 .block-posts
     @include media-breakpoint-up(desktop)
         &--list
             .post-content
                 flex: 1
+                [itemprop="abstract"]
+                    width: columns(6)
 // pages
 .block-pages
     // overrided block : add "read more" button
@@ -122,6 +129,7 @@ body:not(.page__home)
                                 margin-top: 0
     &--cards
         background: transparent
+        padding-bottom: 0
         .cards
             article
                 align-items: flex-start
@@ -342,6 +350,8 @@ body:not(.page__home)
         .testimonials
             padding-bottom: $spacing-4
             padding-top: $spacing-5
+            @include media-breakpoint-up(desktop)
+                margin-top: -($spacing-5)
     .testimonial
         @include in-page-with-or-without-sidebar
             padding-left: 0
@@ -443,32 +453,38 @@ body:not(.page__home)
                     padding-top: calc(var(--grid-gutter) * 2)
                 margin-left: auto
                 margin-right: auto
-    &--alt_background,
-        @include media-breakpoint-up(desktop)
-            // homepage specific (for mids so far) but will maybe be use elsewhere
-            .page__home.full-width &
-                .block-content
-                    width: 100%
-                    .chapter
-                        gap: var(--grid-gutter)
-                        .top
-                            order: 1
-                            .block-title
-                                text-align: left
-                        .text,
-                        figure
-                            width: columns(6)
-                        .text
-                            @include h6
-                            display: flex
-                            flex-direction: column-reverse
-                            justify-content: space-between
-                            order: -1
-                        figure
-                            margin: 0
-                            img
-                                aspect-ratio: 1
-                                object-fit: cover
+    &--alt_background
+        @include in-page-without-sidebar
+            .block-content
+                width: 100%
+                .chapter
+                    gap: var(--grid-gutter)
+                    .top
+                        order: 1
+                        .block-title
+                            text-align: left
+                    .text,
+                    figure
+                        width: columns(6)
+                    .text
+                        @include h6
+                        display: flex
+                        flex-direction: column-reverse
+                        justify-content: space-between
+                        order: -1
+                    figure
+                        margin: 0
+                        img
+                            aspect-ratio: 1
+                            object-fit: cover
+            &:not(.block-chapter--with-image)
+                .chapter
+                    width: columns(7.5)
+                    @include media-breakpoint-up(xxl)
+                        width: columns(6)
+                    .text
+                        @include h5
+                        font-weight: normal
         @include media-breakpoint-down(desktop)
             .chapter
                 flex-direction: column-reverse
