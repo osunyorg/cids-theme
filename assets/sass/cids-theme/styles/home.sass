@@ -53,13 +53,17 @@
     .block-pages--list.with-description
         border-bottom: 1px solid $color-border
         padding-bottom: $spacing-6
-        .block-title
-            @include h2
-            a::after
-                display: none
+        .block-content
+            .block-title
+                @include h2
+                a::after
+                    display: none
+                @include media-breakpoint-up(desktop)
+                        padding-top: $spacing-6
+                        margin-top: $spacing-4
             @include media-breakpoint-up(desktop)
-                    padding-top: $spacing-6
-                    margin-top: $spacing-4
+                .page + .page 
+                    margin-top: 0 !important
     .block-chapter:not(.block-chapter--alt_background)
         @include media-breakpoint-up(desktop)
             padding-top: $spacing-2

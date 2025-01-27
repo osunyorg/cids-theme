@@ -303,6 +303,13 @@ body:not(.page__home)
                         grid-row: 1 / 2
                         p + p 
                             margin-top: 0
+                    @include media-breakpoint-down(xl)
+                        .event-schedule,
+                        .event-title,
+                        .event-description
+                            grid-column: 1 / 11
+                        .event-schedule
+                            grid-row: auto
                 .media,
                 .event-schedule
                     width: columns(3)
