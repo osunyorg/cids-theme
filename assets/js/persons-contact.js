@@ -1,7 +1,7 @@
 window.cids = window.cids || {};
 
 window.cids.ContactDetails = function () {
-  this.taxonomies = document.querySelector('.taxonomies-single');
+  this.taxonomies = document.querySelector('.taxonomies-container');
   this.contactDetails = document.querySelector('.contacts-details');
   
   if (!this.taxonomies || !this.contactDetails || window.innerWidth <= 768) {
