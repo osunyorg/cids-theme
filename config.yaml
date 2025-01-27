@@ -36,6 +36,9 @@ params:
     blocks:
       image:
         desktop:  2600x2600
+      events:
+        list:
+          desktop:  429
     design_system:
       hero:
         desktop:  1920
