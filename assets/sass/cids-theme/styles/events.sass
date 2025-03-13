@@ -1,5 +1,21 @@
 body.events__page
     @include media-breakpoint-up(desktop)
+        .hero
+            &.hero--image-square,
+            &.hero--image-portrait,
+            &.hero--image-landscape
+                .hero-text
+                    text-align: left
+                    margin-top: $spacing-5
+                    // width: columns(12) !important
+                    h1
+                        margin-right: 0
+                        width: 100% !important
+                        margin-right: 0 !important
+                        margin-bottom: $spacing-5
+                        max-width: 100%
+                    .taxonomies-single
+                        width: columns(6)
         .document-content
             .block-summary
                 .lead
