@@ -538,6 +538,8 @@ body:not(.page__home)
                 min-height: unset
                 > a
                     @include lead
+                    &[target="_blank"]::after
+                        font-size: var(--body-size)
                     &:hover
                         @include link($color-electric-blue)
     &:not(.block-class-with_large_links)
