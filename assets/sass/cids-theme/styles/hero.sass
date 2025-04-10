@@ -24,6 +24,7 @@
         margin-left: auto
         margin-right: auto
         text-align: center
+
 .block-summary
     @include in-page-with-or-without-sidebar
         margin-bottom: $spacing-6
@@ -44,7 +45,8 @@
     .events__page:not(.full-width),
     .events__page.full-width
         .block-summary
-            margin-left: offset(3)
+            .block-content
+                padding-left: offset(3) !important
         .post-sidebar > div
             html:not(.is-scrolling-down) &,
             &
