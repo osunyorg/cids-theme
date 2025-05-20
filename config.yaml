@@ -39,6 +39,9 @@ params:
       events:
         list:
           desktop:  429
+      pages:
+        list:
+          desktop: 742
     design_system:
       hero:
         desktop:  1920
