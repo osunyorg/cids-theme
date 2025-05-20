@@ -1,6 +1,15 @@
 body.events__page
     @include media-breakpoint-up(desktop)
         .hero
+            &:not(.hero--with-image)
+                .hero-text
+                    align-items: flex-start
+                    h1, hgroup
+                        text-align: left
+                        max-width: columns(10)
+                    .taxonomies-single
+                        order: unset
+                        width: columns(8)
             &.hero--image-square,
             &.hero--image-portrait,
             &.hero--image-landscape
@@ -40,3 +49,9 @@ body.events__page
                         width: columns(6)
                         @include media-breakpoint-up(xxl)
                             margin-left: offset(0.5)
+
+.events--agenda
+    .event-hours
+        time + time
+            font-family: $h1-font-family
+            font-weight: bold
