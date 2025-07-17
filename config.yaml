@@ -19,9 +19,10 @@ params:
     position: content
   toc:
     force_offcanvas: true
+  exhibitions:
+    date_format: "01.02"
   events:
     date_format: "01.02"
-    time_format: ":time_short"
   posts:
     single:
       author_signature: true

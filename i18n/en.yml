@@ -1,4 +1,5 @@
 commons:
+  time_format: :time_short
   contact:
     email:
       label: Contact
