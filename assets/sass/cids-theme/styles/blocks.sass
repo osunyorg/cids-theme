@@ -284,11 +284,10 @@ body:not(.page__home)
 .block-agenda
     .event-schedule
         @include in-page-with-or-without-sidebar
-            .event-dates,
-            .event-time
+            .event-dates
                 font-family: $font-sans-serif
                 @include media-breakpoint-up(desktop)
-                    @include h3
+                    @include h4
                     font-family: $font-sans-serif
 .events--list,
 .block-agenda--list
@@ -324,14 +323,15 @@ body:not(.page__home)
                             &:last-child
                                 &::before
                                     display: inline
-                    .event-dates,
-                    .event-time
+                    .event-dates
                         font-family: $font-sans-serif
                         @include media-breakpoint-up(desktop)
                             @include h3
                             font-family: $font-sans-serif
                         @include media-breakpoint-up(xxl)
                             @include h2
+                    .event-time
+                        @include h4
             @include media-breakpoint-down(desktop)
                 .event-schedule
                     margin-top: $spacing-2

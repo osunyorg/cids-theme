@@ -25,7 +25,8 @@ params:
     date_format: "01.02"
   posts:
     single:
-      author_signature: true
+      options:
+        signature: true
   persons:
     single:
       taxonomies:
