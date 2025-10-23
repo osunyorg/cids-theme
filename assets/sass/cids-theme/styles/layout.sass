@@ -40,6 +40,9 @@ body:not(.page__home)
                 padding-left: 0
                 text-align: center
                 width: columns(8)
+            .block-definitions details p
+                padding-left: 0
+                margin-left: 0
 
         // ending blocks
         .block:last-child
@@ -48,7 +51,7 @@ body:not(.page__home)
                 &--list,
                 &--grid
                     background-color: $color-background-alt
-                    margin-bottom: 0
+                    margin-bottom: -$spacing-5
                     .block-content
                         padding-bottom: var(--grid-gutter)
                         padding-top: var(--grid-gutter)

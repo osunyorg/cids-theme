@@ -42,6 +42,13 @@ body
                 background-color: $deep-blue-background-alt
         .block-testimonials blockquote p
             color: var(--color-text)
+        .block-definitions
+            --color-border: rgba(255,255,255, 0.2)
+            details 
+                summary:hover
+                    color: var(--color-text)
+                &:hover::after
+                    border-color: var(--color-border)
 
     // normal pages
     &:not(.page-dark_blue_background)
