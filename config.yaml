@@ -44,6 +44,9 @@ params:
       pages:
         list:
           desktop: 742
+      persons:
+        grid:
+          desktop:  400
     design_system:
       hero:
         desktop:  1920
@@ -51,8 +54,6 @@ params:
         mobile:   480x850
         tablet:   768x1360
         desktop:  1920x1920
-      persons:
-        desktop:  400
     sections:
       categories:
         hero:
