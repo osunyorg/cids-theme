@@ -68,15 +68,14 @@
                     > span
                         @extend .sr-only
                     &.email
-                        @extend .button-accent
-                        --btn-color: #{$color-background}
-                        --btn-background: #{$color-electric-blue}
-                        --btn-hover-background: #{alphaColor($color-electric-blue, 0.85)}
-                        --btn-padding: 12px 30px
-                        min-width: unset
                         order: 10
                         a
-                            color: var(--btn-color)
+                            @extend .button-accent
+                            --btn-color: #{$color-background}
+                            --btn-background: #{$color-electric-blue}
+                            --btn-hover-background: #{alphaColor($color-electric-blue, 0.85)}
+                            --btn-padding: 12px 30px
+                            min-width: unset
                             text-decoration: none
                             font-size: 0
                             &::before
