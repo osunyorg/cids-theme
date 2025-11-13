@@ -39,7 +39,6 @@
             .lead
                 margin-bottom: var(--block-space-y)
         @include media-breakpoint-up(desktop)
-            min-height: 100vh
             .informations
                 .biography
                     grid-column: 6 / 13
@@ -49,10 +48,7 @@
                         @include h3
                         text-align: left
         .contacts-details
-            position: absolute
             margin-top: calc(var(--grid-gutter))
-            @include media-breakpoint-down(desktop)
-                margin-top: calc(var(--grid-gutter) + #{space(3)})
             &::before
                 @include h4
                 display: block
@@ -82,6 +78,15 @@
                                 @include meta
                                 content: 'Mail'
                                 display: block
+
+            @include media-breakpoint-down(desktop)
+                margin-top: calc(var(--grid-gutter) + #{space(3)})
+
+            @include media-breakpoint-up(desktop)
+                padding-bottom: $spacing-5
+                position: absolute
+                width: columns(3)
+        
         .taxonomies-container
             @include media-breakpoint-up(desktop)
                 @include container
@@ -89,6 +94,7 @@
                 margin-top: space(5)
                 position: absolute
                 top: columns(2.5)
+                width: columns(3)
                 .persons-taxonomies
                     display: flex
                     flex-direction: column
