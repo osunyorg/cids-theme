@@ -33,14 +33,17 @@
                             width: columns(5)
         &.is-loaded .hero .hero-text h1
             opacity: 1
+    
     .block-class-centered-title
         + .block-testimonials
             @include media-breakpoint-up(desktop)
                 margin-top: space(25)
+
             @include media-breakpoint-down(desktop)
                 .block-content
                     .testimonials
                         padding-top: $spacing-3
+    
     .block-class-centered-title,
     .block-chapter:not(.block-chapter--alt_background)
         @include media-breakpoint-up(desktop)
@@ -50,20 +53,25 @@
                 margin-right: auto
                 text-align: center
                 width: columns(8)
+    
     .block-pages--list.with-description
         border-bottom: 1px solid $color-border
         padding-bottom: $spacing-6
         .block-content
             .block-title
                 @include h2
+                margin-bottom: $spacing-5 !important
                 a::after
                     display: none
+                
                 @include media-breakpoint-up(desktop)
-                        padding-top: $spacing-6
-                        margin-top: $spacing-4
+                    padding-top: $spacing-6
+                    margin-top: $spacing-4
+            
             @include media-breakpoint-up(desktop)
-                .page + .page 
+                .pages > li + li
                     margin-top: 0 !important
+    
     .block-chapter:not(.block-chapter--alt_background)
         @include media-breakpoint-up(desktop)
             padding-top: $spacing-2
@@ -71,6 +79,7 @@
                 @include h2
                 font-size: $h2-size
                 font-family: $font-serif
+
     @include media-breakpoint-up(desktop)
         main .block.block-title:not(.block-class-with-alt_background)
             margin-bottom: $spacing-5
