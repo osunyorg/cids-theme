@@ -56,10 +56,10 @@ body:not(.page__home)
                         padding-bottom: var(--grid-gutter)
                         padding-top: var(--grid-gutter)
                         width: 100%
-            &.block-pages
+            &.block-pages--list
                 ul
                     display: block
-                    .page + .page
+                    > li + li
                         margin-top: var(--grid-gutter)
                     @include media-breakpoint-up(desktop)
                         article

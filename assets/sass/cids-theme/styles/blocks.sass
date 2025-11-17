@@ -78,10 +78,10 @@ body:not(.page__home)
                 [itemprop="abstract"]
                     width: columns(6)
 // pages
-.block-pages
+.block.block-pages
     // overrided block : add "read more" button
     &--grid
-        .grid
+        .pages
             @include grid(3, desktop)
             article
                 align-items: flex-start
@@ -90,8 +90,12 @@ body:not(.page__home)
                     margin-bottom: $spacing-1
                     a::after
                         display: none
+                    + p
+                        margin-top: $spacing-2
                 .more
                     @extend .button
+                    &::after
+                        content: none
                 &:hover
                     .more
                         background-color: var(--color-accent)
@@ -137,10 +141,11 @@ body:not(.page__home)
     &--cards
         background: transparent
         padding-bottom: 0
-        .cards
-            article
-                align-items: flex-start
+        .pages
+            .page
                 padding-bottom: 0
+                .page-content
+                    align-items: flex-start
                 .page-title
                     @include h2
                 .page-title,
@@ -158,6 +163,7 @@ body:not(.page__home)
                 &:hover
                     .more
                         border-color: $color-background
+                        text-decoration: none
                 .media
                     order: 3
                     margin-bottom: 0
@@ -166,12 +172,15 @@ body:not(.page__home)
                         margin-top: auto
                         img
                             aspect-ratio: 426/282
+                
                 @include media-breakpoint-down(desktop)
                     min-height: unset
+        
         @include in-page-with-or-without-sidebar
             .top
                 .block-title
                     width: unset
+
     // overrided block
     &--large
         .pages
@@ -711,6 +720,7 @@ body:not(.page__home)
                 justify-content: space-between
                 figure
                     width: columns(4)
+
 // posts signatures
 .posts__page 
     .block-signatures
