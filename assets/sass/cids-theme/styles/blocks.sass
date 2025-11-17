@@ -98,6 +98,7 @@ body:not(.page__home)
                         color: var(--btn-hover-color)
                 .media
                     margin-bottom: 0
+    
     &--list
         &.with-description
             .block-content
@@ -128,6 +129,11 @@ body:not(.page__home)
                             gap: $spacing-4
                             li + li
                                 margin-top: 0
+                @include media-breakpoint-down(desktop)
+                    > ul
+                        > li + li
+                            margin-top: $spacing-2
+
     &--cards
         background: transparent
         padding-bottom: 0
