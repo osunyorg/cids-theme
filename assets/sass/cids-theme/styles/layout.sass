@@ -31,7 +31,7 @@ body:not(.page__home)
             .block-content
                 padding-left: 0 !important
                 margin: auto
-            .block:not(.block-call_to_action, .block-title, .block-summary, .block-key_figures, .block-chapter--alt_background, .block-testimonials, .block-timeline, .block-projects, .block-agenda, .block-pages, .block-posts, .block-image.image-landscape, .block-persons, .block-organizations, .block-chapter--accent_background, .block-chapter--alt_background)
+            .block:not(.block-call_to_action, .block-title, .block-summary, .block-key_figures, .block-testimonials, .block-timeline, .block-projects, .block-agenda, .block-pages, .block-posts, .block-image.image-landscape, .block-persons, .block-organizations, .block-chapter--accent_background.block-chapter--with-image, .block-chapter--alt_background.block-chapter--with-image)
                 .block-content,
                 figure img
                     width: columns(6)
@@ -57,17 +57,37 @@ body:not(.page__home)
                         padding-top: var(--grid-gutter)
                         width: 100%
             &.block-pages--list
-                ul
+                background:
+                    image: url('/assets/images/pattern_gray.svg')
+                    repeat: no-repeat
+                    position: left top
+                .pages
                     display: block
-                    > li + li
-                        margin-top: var(--grid-gutter)
+                    .page
+                        &-title
+                            @include h2
+                            font-family: $font-serif
+                            a::after
+                                content: none
+                        &-content > p
+                            @include h6
+
+                    @include media-breakpoint-down(desktop)
+                        > li + li
+                            margin-top: $spacing-5
+
                     @include media-breakpoint-up(desktop)
+                        > li + li
+                            margin-top: space(20)
                         article
                             .page-content
                                 margin-left: offset(2)
                                 width: columns(5)
                             .media
                                 width: columns(5)
+
+                @include media-breakpoint-down(desktop)
+                    background-size: 75%
 
 // pagination
 .pagination
