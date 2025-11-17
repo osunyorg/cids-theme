@@ -202,8 +202,10 @@ body:not(.page__home)
                         aspect-ratio: 660/438
                 &:hover
                     .more
-                        background-color: var(--color-accent)
-                        color: var(--btn-hover-color)
+                        --btn-background: var(--color-accent)
+                        --btn-border: 1px solid var(--color-accent)
+                        --btn-color: var(--btn-hover-color)
+            
             @include media-breakpoint-up(desktop)
                 > li + li
                     margin-top: $spacing-6
