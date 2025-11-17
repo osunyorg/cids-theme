@@ -36,6 +36,8 @@ params:
       lightbox:
         disabled: true
     blocks:
+      chapter:
+        desktop:  888
       image:
         desktop:  2600x2600
       events:

@@ -168,89 +168,99 @@ body:not(.page__home)
                     width: unset
     // overrided block
     &--large
-        .page
-            &-material
-                .page-content
-                    > p:not(.more)
-                        font-family: $font-serif
-                    .more
-                        @extend .button
-                        &::after
-                            display: none
-            &:hover
-                .more
-                    background-color: var(--color-accent)
-                    color: var(--btn-hover-color)
-            &-title
-                a::after
-                    display: none
-            .media
-                margin-bottom: 0
-                img
-                    aspect-ratio: 660/438
-            @include media-breakpoint-up(desktop)
-                position: relative
-                display: block
-                + .page
-                    margin-top: $spacing-6
-                &-title
-                    padding: $spacing-5 columns(1)
-                    @include in-page-with-or-without-sidebar
-                        @include h1
-                    a
-                        text-decoration: none
-                &-material
-                    display: flex
-                    gap: var(--grid-gutter)
-                    justify-content: space-between
+        .pages
+            .page
+                .page-material
                     .page-content
-                        flex: 1
                         > p:not(.more)
-                            @include h2
                             font-family: $font-serif
-                            font-size: $h2-size
                         .more
-                            margin-top: $spacing-4
-                    .media
-                        width: columns(6)
-                // light superposed background
-                &::after
-                    background-color: $color-background-alt
-                    content: ''
-                    position: absolute
-                    height: calc(100% - #{$spacing-5})
-                    top: 0
-                    right: 0
-                    width: columns(6)
-                    z-index: -1
-                    @include in-page-with-or-without-sidebar
-                        width: columns(10)
-                &:nth-child(odd)
+                            @extend .button
+                            &::after
+                                display: none
+                .page-title
+                    a::after
+                        display: none
+                .media
+                    margin-bottom: 0
+                    img
+                        aspect-ratio: 660/438
+                &:hover
+                    .more
+                        background-color: var(--color-accent)
+                        color: var(--btn-hover-color)
+            @include media-breakpoint-up(desktop)
+                > li + li
+                    margin-top: $spacing-6
+
+                .page
+                    position: relative
+                    display: block
                     .page-title
-                        margin-left: columns(3)
-                        padding-left: 0
-                    .page-content
-                        padding-right: var(--grid-gutter)
-                &:nth-child(even)
-                    .page-content
-                        padding-left: columns(1)
-                    .media
-                        order: 2
+                        padding: $spacing-5 columns(1)
+                        a
+                            text-decoration: none
+                        @include in-page-with-or-without-sidebar
+                            @include h1
+                    
+                    &-material
+                        display: flex
+                        gap: var(--grid-gutter)
+                        justify-content: space-between
+                        .page-content
+                            flex: 1
+                            > p:not(.more)
+                                @include h2
+                                font-family: $font-serif
+                                font-size: $h2-size
+                            .more
+                                margin-top: $spacing-4
+                        .media
+                            width: columns(6)
+                    // light superposed background
                     &::after
-                        right: unset
-                        left: 0
+                        background-color: $color-background-alt
+                        content: ''
+                        position: absolute
+                        height: calc(100% - #{$spacing-5})
+                        top: 0
+                        right: 0
+                        width: columns(6)
+                        z-index: -1
+                        @include in-page-with-or-without-sidebar
+                            width: columns(10)
+                    &:nth-child(odd)
+                        .page-title
+                            margin-left: columns(3)
+                            padding-left: 0
+                        .page-content
+                            padding-right: var(--grid-gutter)
+                    &:nth-child(even)
+                        .page-content
+                            padding-left: columns(1)
+                        .media
+                            order: 2
+                        &::after
+                            right: unset
+                            left: 0
+            
             @include media-breakpoint-down(desktop)
-                background-color: $color-background-alt
-                margin-left: var(--grid-gutter-negative)
-                margin-right: var(--grid-gutter-negative)
-                &-title
-                    @include h1
-                &-title,
-                &-content
-                    padding: var(--grid-gutter)
-                + .page
+                > li + li
                     margin-top: 0
+                
+                .page
+                    background-color: $color-background-alt
+                    margin-left: var(--grid-gutter-negative)
+                    margin-right: var(--grid-gutter-negative)
                     padding-top: $spacing-4
+                    &-title
+                        @include h1
+                    &-title,
+                    &-content
+                        padding: var(--grid-gutter)
+                    .media
+                        margin: 0
+
 // key figures
 .block-key_figures
     @include media-breakpoint-up(desktop)
