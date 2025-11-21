@@ -689,6 +689,7 @@ body:not(.page__home)
 .blocks
     .block:last-child:is(.block-call_to_action)
         margin-bottom: 0
+
 .block-call_to_action
     .top .block-title
         text-align: left
@@ -701,6 +702,10 @@ body:not(.page__home)
                     margin-left: var(--grid-gutter-negative)
     &--no_background
         --cta-background-color: #{$color-background-alt}
+        @include media-breakpoint-down(desktop)
+            background-color: var(--cta-background-color)
+            .call_to_action
+                padding: var(--block-space-y) 0
 
 // block files/téléchargement/download
 .block-files
