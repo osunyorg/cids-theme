@@ -55,3 +55,10 @@ body.events__page
         time + time
             font-family: $h1-font-family
             font-weight: bold
+
+    @include media-breakpoint-up(md)
+        .events-date,
+        .events-date--sticky
+            .events-date-title
+                span
+                    padding-top: $spacing-3

@@ -31,9 +31,13 @@
                         svg
                             height: 100%
                             width: columns(5)
+        
         &.is-loaded .hero .hero-text h1
             opacity: 1
     
+        .block-summary
+            margin-top: var(--block-space-y) !important
+
     .block-class-centered-title
         + .block-testimonials
             @include media-breakpoint-up(desktop)
