@@ -246,18 +246,21 @@ body:not(.page__home)
                         z-index: -1
                         @include in-page-with-or-without-sidebar
                             width: columns(10)
+                
+                > li
                     &:nth-child(odd)
                         .page-title
                             margin-left: columns(3)
                             padding-left: 0
                         .page-content
                             padding-right: var(--grid-gutter)
+                    
                     &:nth-child(even)
                         .page-content
                             padding-left: columns(1)
                         .media
                             order: 2
-                        &::after
+                        .page::after
                             right: unset
                             left: 0
             
