@@ -9,6 +9,7 @@ body
         --hero-background-color: #{$color-accent}
         --hero-color: var(--color-text)
         --color-text-alt: rgba(255,255,255, 0.8)
+
         // LAYOUT
         .toc-container
             --color-text: #{$color-text}
@@ -19,27 +20,30 @@ body
                 color: var(--color-background)
         .hero
             background: var(--hero-background-color)
+        
         // BLOCKS
         .block-pages article:not(:hover) .more
             border: pxToRem(1) solid rgba(255,255,255, 0.4) !important
-        .block-pages--cards .card,
-        .block-pages--large .page:after
+        
+        .block-pages--large .page::after
+            background-color: $deep-blue-background-alt !important
+        
+        .block-pages--cards .page
             background-color: $deep-blue-background-alt
-        .block-pages--cards .card
             &:hover
                 background-color: $color-electric-blue
-                &, a
+                .page-title a,
+                p
                     color: var(--color-text)
-        .block-pages--cards .card,
+
+        .block-pages--cards .page,
         .block-pages--large .page
             &:hover
                 .more
-                    background-color: var(--color-text)
-                    color: var(--color-accent)
-                    border-color: var(--color-text)
-        .block-pages--large .page
-            @include media-breakpoint-down(desktop)
-                background-color: $deep-blue-background-alt
+                    --btn-background: var(--color-text) !important
+                    --btn-color: #{$color-text} !important
+                    --btn-border: 1px solid var(--color-text) !important
+
         .block-testimonials blockquote p
             color: var(--color-text)
         .block-definitions
@@ -52,5 +56,5 @@ body
 
     // normal pages
     &:not(.page-dark_blue_background)
-        .block-pages--cards .card:not(:hover)
+        .block-pages--cards .page:not(:hover)
             background-color: $color-background-alt

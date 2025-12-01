@@ -36,11 +36,10 @@ params:
       lightbox:
         disabled: true
     blocks:
+      chapter:
+        desktop:  888
       image:
         desktop:  2600x2600
-      events:
-        list:
-          desktop:  429
       pages:
         list:
           desktop: 742
@@ -77,6 +76,9 @@ params:
           desktop:  1920
         item:
           desktop:  1920
+        layouts:
+          list:
+            desktop:  429
       organizations:
         hero:
           desktop:  1920

@@ -55,3 +55,20 @@ body.events__page
         time + time
             font-family: $h1-font-family
             font-weight: bold
+
+    .events-date,
+    .events-date--sticky
+        @include media-breakpoint-up(md)
+            .events-date-title
+                span
+                    padding-top: $spacing-3
+
+        @include media-breakpoint-down(md)
+            .events-scheduled
+                > li
+                    margin-top: 0
+                .event
+                    .event-hours
+                        margin-top: 0
+                    .media
+                        margin-bottom: $spacing-2

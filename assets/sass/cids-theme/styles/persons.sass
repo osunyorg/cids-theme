@@ -4,7 +4,7 @@
         @include media-breakpoint-down(desktop)
             &,
             .container
-                margin-bottom: $spacing-4
+                margin-bottom: $spacing-4 !important
         @include media-breakpoint-up(desktop)
             margin-bottom: $spacing-3
             padding-bottom: 0
@@ -57,14 +57,19 @@
             ul
                 display: flex
                 flex-direction: column
+                row-gap: $spacing-1
                 li, 
                 address
                     @include meta
+                
                 li
                     > span
                         @extend .sr-only
+                    + li
+                        margin-top: 0
                     &.email
                         order: 10
+                        margin-top: $spacing-1
                         a
                             @extend .button-accent
                             --btn-color: #{$color-background}

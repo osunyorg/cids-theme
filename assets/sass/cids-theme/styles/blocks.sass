@@ -78,26 +78,33 @@ body:not(.page__home)
                 [itemprop="abstract"]
                     width: columns(6)
 // pages
-.block-pages
+.block.block-pages
     // overrided block : add "read more" button
     &--grid
-        .grid
+        .pages
             @include grid(3, desktop)
             article
                 align-items: flex-start
                 .page-title
+                    @include h3
                     order: -2
                     margin-bottom: $spacing-1
-                    a::after
-                        display: none
+                    a
+                        @include stretched-link(before)
+                        text-decoration: none
+                    + p
+                        margin-top: $spacing-2
                 .more
                     @extend .button
+                    &::after
+                        content: none
                 &:hover
                     .more
                         background-color: var(--color-accent)
                         color: var(--btn-hover-color)
                 .media
                     margin-bottom: 0
+    
     &--list
         &.with-description
             .block-content
@@ -115,7 +122,7 @@ body:not(.page__home)
                             font-family: $font-serif
                     + .title-only
                         justify-content: center
-                        margin-top: $spacing-4
+                        margin-top: $spacing-4 !important
                         li
                             a
                                 @extend .button
@@ -128,13 +135,19 @@ body:not(.page__home)
                             gap: $spacing-4
                             li + li
                                 margin-top: 0
+                @include media-breakpoint-down(desktop)
+                    > ul
+                        > li + li
+                            margin-top: $spacing-2
+
     &--cards
         background: transparent
         padding-bottom: 0
-        .cards
-            article
-                align-items: flex-start
+        .pages
+            .page
                 padding-bottom: 0
+                .page-content
+                    align-items: flex-start
                 .page-title
                     @include h2
                 .page-title,
@@ -149,9 +162,7 @@ body:not(.page__home)
                     margin-bottom: var(--grid-gutter)
                     &::after
                         display: none
-                &:hover
-                    .more
-                        border-color: $color-background
+                
                 .media
                     order: 3
                     margin-bottom: 0
@@ -160,97 +171,121 @@ body:not(.page__home)
                         margin-top: auto
                         img
                             aspect-ratio: 426/282
+                
+                body:not(.page-dark_blue_background) &
+                    &:hover
+                        .more
+                            color: $color-background
+                            border-color: $color-background
+                            text-decoration: none
+                
                 @include media-breakpoint-down(desktop)
                     min-height: unset
+        
         @include in-page-with-or-without-sidebar
             .top
                 .block-title
                     width: unset
+
     // overrided block
     &--large
-        .page
-            &-material
-                .page-content
-                    > p:not(.more)
-                        font-family: $font-serif
-                    .more
-                        @extend .button
-                        &::after
-                            display: none
-            &:hover
-                .more
-                    background-color: var(--color-accent)
-                    color: var(--btn-hover-color)
-            &-title
-                a::after
-                    display: none
-            .media
-                margin-bottom: 0
-                img
-                    aspect-ratio: 660/438
-            @include media-breakpoint-up(desktop)
-                position: relative
-                display: block
-                + .page
-                    margin-top: $spacing-6
-                &-title
-                    padding: $spacing-5 columns(1)
-                    @include in-page-with-or-without-sidebar
-                        @include h1
-                    a
-                        text-decoration: none
-                &-material
-                    display: flex
-                    gap: var(--grid-gutter)
-                    justify-content: space-between
+        .pages
+            .page
+                .page-material
                     .page-content
-                        flex: 1
                         > p:not(.more)
-                            @include h2
                             font-family: $font-serif
-                            font-size: $h2-size
                         .more
-                            margin-top: $spacing-4
-                    .media
-                        width: columns(6)
-                // light superposed background
-                &::after
-                    background-color: $color-background-alt
-                    content: ''
-                    position: absolute
-                    height: calc(100% - #{$spacing-5})
-                    top: 0
-                    right: 0
-                    width: columns(6)
-                    z-index: -1
-                    @include in-page-with-or-without-sidebar
-                        width: columns(10)
-                &:nth-child(odd)
+                            @extend .button
+                            &::after
+                                display: none
+                .page-title
+                    a::after
+                        display: none
+                .media
+                    margin-bottom: 0
+                    img
+                        aspect-ratio: 660/438
+                &:hover
+                    .more
+                        --btn-background: var(--color-accent)
+                        --btn-border: 1px solid var(--color-accent)
+                        --btn-color: var(--btn-hover-color)
+            
+            @include media-breakpoint-up(desktop)
+                > li + li
+                    margin-top: $spacing-6
+
+                .page
+                    position: relative
+                    display: block
                     .page-title
-                        margin-left: columns(3)
-                        padding-left: 0
-                    .page-content
-                        padding-right: var(--grid-gutter)
-                &:nth-child(even)
-                    .page-content
-                        padding-left: columns(1)
-                    .media
-                        order: 2
+                        padding: $spacing-5 columns(1)
+                        a
+                            text-decoration: none
+                        @include in-page-with-or-without-sidebar
+                            @include h1
+                    
+                    &-material
+                        display: flex
+                        gap: var(--grid-gutter)
+                        justify-content: space-between
+                        .page-content
+                            flex: 1
+                            > p:not(.more)
+                                @include h2
+                                font-family: $font-serif
+                                font-size: $h2-size
+                            .more
+                                margin-top: $spacing-4
+                        .media
+                            width: columns(6)
+                    // light superposed background
                     &::after
-                        right: unset
-                        left: 0
+                        background-color: $color-background-alt
+                        content: ''
+                        position: absolute
+                        height: calc(100% - #{$spacing-5})
+                        top: 0
+                        right: 0
+                        width: columns(6)
+                        z-index: -1
+                        @include in-page-with-or-without-sidebar
+                            width: columns(10)
+                
+                > li
+                    &:nth-child(odd)
+                        .page-title
+                            margin-left: columns(3)
+                            padding-left: 0
+                        .page-content
+                            padding-right: var(--grid-gutter)
+                    
+                    &:nth-child(even)
+                        .page-content
+                            padding-left: columns(1)
+                        .media
+                            order: 2
+                        .page::after
+                            right: unset
+                            left: 0
+            
             @include media-breakpoint-down(desktop)
-                background-color: $color-background-alt
-                margin-left: var(--grid-gutter-negative)
-                margin-right: var(--grid-gutter-negative)
-                &-title
-                    @include h1
-                &-title,
-                &-content
-                    padding: var(--grid-gutter)
-                + .page
+                > li + li
                     margin-top: 0
-                    padding-top: $spacing-4
+                
+                .page
+                    background-color: $color-background-alt
+                    margin-left: var(--grid-gutter-negative)
+                    margin-right: var(--grid-gutter-negative)
+                    &-title
+                        @include h1
+                    &-title,
+                    &-content
+                        padding: var(--grid-gutter)
+                    .media
+                        margin: 0
+
 // key figures
 .block-key_figures
     @include media-breakpoint-up(desktop)
@@ -390,7 +425,7 @@ body:not(.page__home)
     + .block-persons
         border-top: 1px solid $color-border
         padding-top: var(--block-space-y)
-    div.persons
+    .persons
         .person-name
                 font-family: $font-serif
         @include in-page-without-sidebar
@@ -434,7 +469,7 @@ body:not(.page__home)
                     .organization
                         width: columns(5)
 
-.organizations.grid:not(.with-summaries)
+.organizations--grid:not(.with-summaries)
     @include in-page-with-sidebar
         @include grid(5, xl)
     .organization
@@ -621,7 +656,7 @@ body:not(.page__home)
         &--grid
             @include media-breakpoint-up(desktop)
                 grid-gap: $spacing-5 var(--grid-gutter)
-                .project
+                > li
                     padding-bottom: space(10)
                     &:nth-child(odd)
                         &::after
@@ -662,6 +697,7 @@ body:not(.page__home)
 .blocks
     .block:last-child:is(.block-call_to_action)
         margin-bottom: 0
+
 .block-call_to_action
     .top .block-title
         text-align: left
@@ -674,6 +710,10 @@ body:not(.page__home)
                     margin-left: var(--grid-gutter-negative)
     &--no_background
         --cta-background-color: #{$color-background-alt}
+        @include media-breakpoint-down(desktop)
+            background-color: var(--cta-background-color)
+            .call_to_action
+                padding: var(--block-space-y) 0
 
 // block files/téléchargement/download
 .block-files
@@ -695,6 +735,7 @@ body:not(.page__home)
                 justify-content: space-between
                 figure
                     width: columns(4)
+
 // posts signatures
 .posts__page 
     .block-signatures
