@@ -75,6 +75,9 @@
                 .pages > li + li
                     margin-top: 0 !important
         
+        @include media-breakpoint-down(desktop)
+            margin-top: $spacing-5 !important
+        
         @include media-breakpoint-up(desktop)
             margin-top: $spacing-5
             .block-title
