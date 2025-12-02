@@ -31,10 +31,10 @@ params:
     single:
       taxonomies:
         position: content
+  components:
+    lightbox:
+      disabled: true
   image_sizes:
-    design_system:
-      lightbox:
-        disabled: true
     blocks:
       chapter:
         desktop:  888
