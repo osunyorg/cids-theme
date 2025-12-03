@@ -331,13 +331,19 @@ body:not(.page__home)
                 flex-direction: row-reverse
             @include in-page-without-sidebar
                 &-content
+                    grid-template-columns: repeat(8, var(--column-width))
                     flex: 1
                     hgroup,
                     > .event-title
                         grid-row: 1 / 4
                         flex: 1
+                    hgroup,
+                    > .event-title,
+                    .event-description
+                        grid-column: 4 / 10
                     .event-schedule
                         grid-row: 1 / 2
+                        grid-column: 1 / 4
                         p + p 
                             margin-top: 0
                     @include media-breakpoint-down(xl)
@@ -347,9 +353,9 @@ body:not(.page__home)
                             grid-column: 1 / 11
                         .event-schedule
                             grid-row: auto
-                .media,
-                .event-schedule
+                .media
                     width: columns(3)
+            
             &-schedule
                 @include in-page-with-or-without-sidebar
                     .event-dates
@@ -367,9 +373,11 @@ body:not(.page__home)
                             @include h2
                     .event-time
                         @include h4
+            
             @include media-breakpoint-down(desktop)
                 .event-schedule
                     margin-top: $spacing-2
+
 // QUOTE / TESTIMONIALS
 .block-testimonials
     .block-content
