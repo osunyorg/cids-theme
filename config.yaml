@@ -35,24 +35,18 @@ params:
     lightbox:
       disabled: true
   image_sizes:
-    blocks:
-      chapter:
-        desktop:  888
-      image:
-        desktop:  2600x2600
-      pages:
-        list:
-          desktop: 742
-      persons:
-        grid:
-          desktop:  400
-    design_system:
+    _default:
       hero:
         desktop:  1920
       image:
         mobile:   480x850
         tablet:   768x1360
         desktop:  1920x1920
+    blocks:
+      chapter:
+        desktop:  888
+      image:
+        desktop:  2600x2600
     sections:
       categories:
         hero:
@@ -90,6 +84,9 @@ params:
         item:
           tablet:   990
           desktop:  990
+        layouts:
+          list:
+            desktop: 742
       papers:
         hero:
           desktop:  1920
@@ -114,3 +111,7 @@ params:
           desktop:  1920
         hero_single:
           desktop:  1920
+      persons:
+        layouts:
+          grid:
+            desktop:  400
