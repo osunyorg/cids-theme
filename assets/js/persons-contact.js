@@ -5,8 +5,8 @@ window.cids.ContactDetails = function () {
   this.taxonomies = document.querySelector('.taxonomies-container');
   this.contactDetails = document.querySelector('.contacts-details');
   this.personImage = document.querySelector('.hero .content > figure')
-  
-  if (!this.taxonomies || !this.contactDetails || window.innerWidth <= 768) {
+
+  if (window.innerWidth <= 768) {
     return;
   }
   
@@ -18,17 +18,24 @@ window.cids.ContactDetails = function () {
 
 window.cids.ContactDetails.prototype = {
   updatePosition: function () {
-    var taxoTop = this.taxonomies.offsetTop;
-    var taxoHeight = this.taxonomies.offsetHeight;
-    var positionFromTop = taxoTop + taxoHeight;
-        
-    this.contactDetails.style.position = 'absolute';
-    this.contactDetails.style.top = positionFromTop + 'px';
+    if (this.taxonomies) {
+      var taxoTop = this.taxonomies.offsetTop;
+      var taxoHeight = this.taxonomies.offsetHeight;
+      var positionFromTop = taxoTop + taxoHeight;
+    }
+      
+    if (this.contactDetails) {
+      this.contactDetails.style.position = 'absolute';
+      this.contactDetails.style.top = positionFromTop + 'px';
+    }
   },
 
   updateContentHeight: function() {
     var self = this;
-    var sidebarHeight = this.taxonomies.offsetHeight + this.contactDetails.offsetHeight + this.personImage.offsetHeight;
+    var contactDetailsHeidht = this.contactDetails ? this.contactDetails.offsetHeight : 0,
+        taxonomiesHeidht = this.taxonomies ? this.taxonomies.offsetHeight : 0,
+        sidebarHeight = taxonomiesHeidht + contactDetailsHeidht + this.personImage.offsetHeight;
+    
     this.pageContent.style.minHeight = `calc(${sidebarHeight}px)`;
   },
   
