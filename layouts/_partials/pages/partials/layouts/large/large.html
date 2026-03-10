@@ -21,7 +21,7 @@
           <div class="page-material">
             <div class="page-content">
               {{ if and $options.summary .Params.summary }}
-                {{ partial "GetRichSummary" ( dict 
+                {{ partial "commons/summary/helpers/GetTruncated" ( dict 
                   "summary" .Params.summary
                   "kind" "pages"
                 )}}
