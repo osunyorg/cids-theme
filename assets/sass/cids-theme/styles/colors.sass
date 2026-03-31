@@ -25,8 +25,12 @@ body
         .block-pages article:not(:hover) .more
             border: pxToRem(1) solid rgba(255,255,255, 0.4) !important
         
-        .block-pages--large .page::after
-            background-color: $deep-blue-background-alt !important
+        .block-pages--large 
+            .page::after
+                background-color: $deep-blue-background-alt !important
+            @include media-breakpoint-down(desktop)
+                .page
+                    background-color: $deep-blue-background-alt !important
         
         .block-pages--cards .page
             background-color: $deep-blue-background-alt
