@@ -104,6 +104,10 @@ body:not(.page__home)
                         color: var(--btn-hover-color)
                 .media
                     margin-bottom: 0
+
+            @include media-breakpoint-down(desktop)
+                > li + li
+                    margin-top: $spacing-5
     
     &--list
         &.with-description
@@ -629,13 +633,37 @@ body:not(.page__home)
 
 // features
 .block-features
-    @include in-page-with-or-without-sidebar
-        ul
-            li
-                gap: var(--grid-gutter)
-                figure
-                    margin-right: 0
-                    order: -1
+    &--grid
+        @include in-page-with-sidebar
+            .features
+                @include grid(1, desktop)
+    &--list
+        .features
+            > .feature
+                border-bottom: 0
+                padding-bottom: 0
+                + .feature
+                    margin-top: $spacing-5
+                    padding-top: 0
+            
+            @include media-breakpoint-down(desktop)
+                .feature
+                    figure 
+                        picture 
+                            img
+                                width: 100%
+
+            @include in-page-with-or-without-sidebar
+                .feature
+                    gap: var(--grid-gutter)
+                    &:has(figure)
+                        .feature-content > *
+                            width: columns(4)
+                    &:has(.is-png, .is-svg)
+                        figure
+                            width: columns(1)
+                        .feature-content > *
+                            width: columns(5)
 
 // datatable
 .block-datatable
