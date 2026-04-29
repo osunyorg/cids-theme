@@ -408,8 +408,7 @@ body:not(.page__home)
         .testimonials
             padding-bottom: $spacing-4
             padding-top: $spacing-5
-            @include media-breakpoint-up(desktop)
-                margin-top: -($spacing-5)
+    
     .testimonial
         @include in-page-with-or-without-sidebar
             padding-left: 0
@@ -645,7 +644,6 @@ body:not(.page__home)
                 + .feature
                     margin-top: $spacing-5
                     padding-top: 0
-            
             @include media-breakpoint-down(desktop)
                 .feature
                     figure 
@@ -656,14 +654,17 @@ body:not(.page__home)
             @include in-page-with-or-without-sidebar
                 .feature
                     gap: var(--grid-gutter)
-                    &:has(figure)
-                        .feature-content > *
-                            width: columns(4)
-                    &:has(.is-png, .is-svg)
-                        figure
-                            width: columns(1)
-                        .feature-content > *
-                            width: columns(5)
+                    .feature-content
+                        display: block
+                        .feature-description
+                            margin-left: 0
+                            margin-top: $spacing-1
+                
+                &:has(figure)
+                    .feature-content > *
+                        width: columns(5)
+                    figure.media--icon
+                        width: columns(1)
 
 // datatable
 .block-datatable
