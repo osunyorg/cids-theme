@@ -104,6 +104,10 @@ body:not(.page__home)
                         color: var(--btn-hover-color)
                 .media
                     margin-bottom: 0
+
+            @include media-breakpoint-down(desktop)
+                > li + li
+                    margin-top: $spacing-5
     
     &--list
         &.with-description
@@ -404,8 +408,7 @@ body:not(.page__home)
         .testimonials
             padding-bottom: $spacing-4
             padding-top: $spacing-5
-            @include media-breakpoint-up(desktop)
-                margin-top: -($spacing-5)
+    
     .testimonial
         @include in-page-with-or-without-sidebar
             padding-left: 0
@@ -629,13 +632,40 @@ body:not(.page__home)
 
 // features
 .block-features
-    @include in-page-with-or-without-sidebar
-        ul
-            li
-                gap: var(--grid-gutter)
-                figure
-                    margin-right: 0
-                    order: -1
+    &--grid
+        @include in-page-with-sidebar
+            .features
+                @include grid(1, desktop)
+    &--list
+        .features
+            > .feature
+                border-bottom: 0
+                padding-bottom: 0
+                + .feature
+                    margin-top: $spacing-5
+                    padding-top: 0
+            @include media-breakpoint-down(desktop)
+                .feature
+                    figure 
+                        picture 
+                            img
+                                width: 100%
+
+            @include in-page-with-or-without-sidebar
+                .feature
+                    gap: var(--grid-gutter)
+                    .feature-content
+                        display: block
+                        .feature-description
+                            margin-left: 0
+                            margin-top: $spacing-1
+                            width: 100%
+                
+                &:has(figure)
+                    .feature-content > *
+                        width: columns(5)
+                    figure.media--icon
+                        width: columns(1)
 
 // datatable
 .block-datatable
