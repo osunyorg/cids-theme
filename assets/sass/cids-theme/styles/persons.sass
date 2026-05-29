@@ -105,10 +105,11 @@
                     flex-direction: column
                 @include media-breakpoint-up(xxl)
                     top: columns(3)
-            .taxonomy-title
-                @include h4
-                display: block
-                margin-bottom: $spacing-1
+            .taxonomies-single.with-label
+                .taxonomy-title
+                    @include h4
+                    display: block
+                    margin-bottom: $spacing-1
             .taxonomy-children
                 @include meta
                 a:not(:hover)
