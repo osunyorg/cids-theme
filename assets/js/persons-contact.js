@@ -2,8 +2,7 @@ window.cids = window.cids || {};
 
 window.cids.ContactDetails = function () {
   this.pageContent = document.querySelector('.document-content');
-  this.taxonomies = document.querySelector('.taxonomies-container');
-  this.contactDetails = document.querySelector('.contacts-details');
+  this.sidebar = document.querySelector('.section-sidebar');
   this.personImage = document.querySelector('.hero .content > figure')
 
   if (window.innerWidth <= 768) {
@@ -18,23 +17,15 @@ window.cids.ContactDetails = function () {
 
 window.cids.ContactDetails.prototype = {
   updatePosition: function () {
-    if (this.taxonomies) {
-      var taxoTop = this.taxonomies.offsetTop;
-      var taxoHeight = this.taxonomies.offsetHeight;
-      var positionFromTop = taxoTop + taxoHeight;
-    }
-      
-    if (this.contactDetails) {
-      this.contactDetails.style.position = 'absolute';
-      this.contactDetails.style.top = positionFromTop + 'px';
+    if (this.sidebar) {
+      this.sidebar.style.top = this.personImage.offsetHeight + 'px';
     }
   },
 
   updateContentHeight: function() {
     var self = this;
-    var contactDetailsHeidht = this.contactDetails ? this.contactDetails.offsetHeight : 0,
-        taxonomiesHeidht = this.taxonomies ? this.taxonomies.offsetHeight : 0,
-        sidebarHeight = taxonomiesHeidht + contactDetailsHeidht + this.personImage.offsetHeight;
+    var sidebarHeidht = this.sidebar ? this.sidebar.offsetHeight : 0,
+        sidebarHeight = sidebarHeidht + this.personImage.offsetHeight;
     
     this.pageContent.style.minHeight = `calc(${sidebarHeight}px)`;
   },
