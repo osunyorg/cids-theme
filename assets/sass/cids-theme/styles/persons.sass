@@ -26,6 +26,7 @@
                     margin-top: 0
                     top: calc(100% + #{$spacing-3})
                     width: columns(2.5)
+                    z-index: 10
                     @include media-breakpoint-up(xxl)
                         top: calc(100% + #{$spacing-5})
                         width: columns(3)
@@ -51,73 +52,26 @@
             .section-sidebar
                 position: absolute
                 left: 0
-
-        .contacts-details
-            margin-top: calc(var(--grid-gutter))
-            &::before
-                @include h4
-                display: block
-                content: 'Contact'
-                margin-bottom: $spacing-1
-            ul
-                display: flex
-                flex-direction: column
-                row-gap: $spacing-1
-                li, 
-                address
-                    @include meta
-                
-                li
-                    > span
-                        @extend .sr-only
-                    + li
-                        margin-top: 0
-                    &.email
-                        order: 10
-                        margin-top: $spacing-1
-                        a
-                            @extend .button-accent
-                            --btn-color: #{$color-background}
-                            --btn-background: #{$color-electric-blue}
-                            --btn-hover-background: #{alphaColor($color-electric-blue, 0.85)}
-                            --btn-padding: 12px 30px
-                            min-width: unset
-                            text-decoration: none
-                            font-size: 0
-                            &::before
-                                @include meta
-                                content: 'Mail'
-                                display: block
-
-            @include media-breakpoint-down(desktop)
-                margin-top: calc(var(--grid-gutter) + #{space(3)})
-
-            @include media-breakpoint-up(desktop)
-                padding-bottom: $spacing-5
-                position: absolute
-                width: columns(3)
-        
-        .taxonomies-container
-            @include media-breakpoint-up(desktop)
-                @include container
-                left: 0
-                margin-top: space(5)
-                position: absolute
-                top: columns(2.5)
-                width: columns(3)
+                z-index: 9
+                .persons-meta,
                 .persons-taxonomies
-                    display: flex
-                    flex-direction: column
-                @include media-breakpoint-up(xxl)
-                    top: columns(3)
-            .taxonomies-single.with-label
-                .taxonomy-title
+                    flex-direction: column !important
+                .taxonomies .taxonomy-title,
+                .persons-meta > li > span
                     @include h4
-                    display: block
-                    margin-bottom: $spacing-1
-            .taxonomy-children
-                @include meta
-                a:not(:hover)
-                    text-decoration: none
-            @include media-breakpoint-down(desktop)
-                margin-top: var(--block-space-y)
+                .taxonomies
+                    order: -1 !important
+                .email
+                    a
+                        @include button-accent
+                        --btn-color: #{$color-background}
+                        --btn-background: #{$color-electric-blue}
+                        --btn-hover-background: #{alphaColor($color-electric-blue, 0.85)}
+                        --btn-padding: 12px 30px
+                        min-width: unset
+                        text-decoration: none
+                        font-size: 0
+                        &::before
+                            @include meta
+                            content: 'Mail'
+                            display: block
