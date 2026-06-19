@@ -1,6 +1,6 @@
 window.cids = window.cids || {};
 
-window.cids.ContactDetails = function () {
+window.cids.Meta = function () {
   this.pageContent = document.querySelector('.document-content');
   this.sidebar = document.querySelector('.section-sidebar');
   this.personImage = document.querySelector('.hero .content > figure');
@@ -16,7 +16,7 @@ window.cids.ContactDetails = function () {
   this.addEventListeners();
 };
 
-window.cids.ContactDetails.prototype = {
+window.cids.Meta.prototype = {
   init: function () {
     var self = this;
 
@@ -61,6 +61,6 @@ window.cids.ContactDetails.prototype = {
 
 document.addEventListener('DOMContentLoaded', function () {
   if (document.body.classList.contains('persons__page')) {
-    new window.cids.ContactDetails();
+    new window.cids.Meta();
   }
 });
