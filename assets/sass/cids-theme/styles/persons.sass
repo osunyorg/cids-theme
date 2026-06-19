@@ -33,6 +33,7 @@
                 @include media-breakpoint-down(desktop)
                     margin-bottom: 0
                     margin-top: $spacing-4
+
     .document-content
         .container
             position: relative
@@ -56,6 +57,12 @@
                 .persons-meta,
                 .persons-taxonomies
                     flex-direction: column !important
+                .persons-meta.with-labels
+                    &, .persons-taxonomies
+                        flex-direction: column !important
+                        > li
+                            width: columns(3) !important
+                    
                 .taxonomies .taxonomy-title,
                 .persons-meta > li > span
                     @include h4
