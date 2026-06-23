@@ -1,53 +1,58 @@
 window.cids = window.cids || {};
 
-window.cids.ContactDetails = function () {
+window.cids.Meta = function () {
   this.pageContent = document.querySelector('.document-content');
-  this.taxonomies = document.querySelector('.taxonomies-container');
-  this.contactDetails = document.querySelector('.contacts-details');
-  this.personImage = document.querySelector('.hero .content > figure')
+  this.sidebar = document.querySelector('.section-sidebar');
+  this.personImage = document.querySelector('.hero .content > figure');
 
-  if (window.innerWidth <= 768) {
+  if (window.innerWidth <= 768 || !this.personImage) {
     return;
   }
-  
-  this.updatePosition();
-  this.updatePosition = this.updatePosition.bind(this);  
-  this.updateContentHeight();
+
+  this.updatePosition = this.updatePosition.bind(this);
+  this.updateContentHeight = this.updateContentHeight.bind(this);
+
+  this.init();
   this.addEventListeners();
 };
 
-window.cids.ContactDetails.prototype = {
-  updatePosition: function () {
-    if (this.taxonomies) {
-      var taxoTop = this.taxonomies.offsetTop;
-      var taxoHeight = this.taxonomies.offsetHeight;
-      var positionFromTop = taxoTop + taxoHeight;
-    }
-      
-    if (this.contactDetails) {
-      this.contactDetails.style.position = 'absolute';
-      this.contactDetails.style.top = positionFromTop + 'px';
+window.cids.Meta.prototype = {
+  init: function () {
+    var self = this;
+
+    this.updatePosition();
+    this.updateContentHeight();
+
+    if (window.ResizeObserver) {
+      this.resizeObserver = new ResizeObserver(function () {
+        self.updatePosition();
+        self.updateContentHeight();
+      });
+      this.resizeObserver.observe(this.personImage);
     }
   },
 
-  updateContentHeight: function() {
-    var self = this;
-    var contactDetailsHeidht = this.contactDetails ? this.contactDetails.offsetHeight : 0,
-        taxonomiesHeidht = this.taxonomies ? this.taxonomies.offsetHeight : 0,
-        sidebarHeight = taxonomiesHeidht + contactDetailsHeidht + this.personImage.offsetHeight;
-    
-    this.pageContent.style.minHeight = `calc(${sidebarHeight}px)`;
+  updatePosition: function () {
+    if (this.sidebar) {
+      this.sidebar.style.top = this.personImage.offsetHeight + 'px';
+    }
   },
-  
+
+  updateContentHeight: function () {
+    var sidebarHeight = this.sidebar ? this.sidebar.offsetHeight : 0;
+    sidebarHeight += this.personImage.offsetHeight;
+    this.pageContent.style.minHeight = sidebarHeight + 'px';
+  },
+
   addEventListeners: function () {
     var self = this;
-    
-    window.addEventListener('resize', function() {
+
+    window.addEventListener('resize', function () {
       self.updatePosition();
       self.updateContentHeight();
     });
-    
-    window.addEventListener('load', function() {
+
+    window.addEventListener('load', function () {
       self.updatePosition();
       self.updateContentHeight();
     });
@@ -56,6 +61,6 @@ window.cids.ContactDetails.prototype = {
 
 document.addEventListener('DOMContentLoaded', function () {
   if (document.body.classList.contains('persons__page')) {
-    new window.cids.ContactDetails();
+    new window.cids.Meta();
   }
 });

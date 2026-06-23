@@ -29,7 +29,7 @@ params:
         signature: true
   persons:
     single:
-      taxonomies:
+      meta:
         position: content
   components:
     lightbox:
