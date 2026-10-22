@@ -3,7 +3,7 @@ window.cids = window.cids || {};
 var patternClass = '.quote-background';
 
 window.cids.Testimonial = function () {
-    this.testimonials = document.querySelectorAll('.block-testimonials .slider-track, .page__home .hero figure');
+    this.testimonials = document.querySelectorAll('.block-testimonials .block-content, .page__home .hero figure');
     if (!this.testimonials || window.innerWidth < 768) {
         return;
     }
