@@ -430,6 +430,10 @@ body:not(.page__home)
         @include media-breakpoint-up(desktop)
             margin: auto
             max-width: columns(8)
+    &--carousel
+        .testimonials
+            li.slider-slide:only-child
+                margin-left: auto
 
 // Persons / people
 .block-persons
@@ -756,23 +760,25 @@ body:not(.page__home)
 // block files/téléchargement/download
 .block-files
     ul.files
-        @include in-page-with-or-without-sidebar
-            display: block
-        li
+        .file
             flex-direction: column-reverse
             &::before
                 @extend .button-accent
                 content: 'Download'
                 height: unset
                 width: unset
-                margin-right: 0
+
                 @include media-breakpoint-down(desktop)
                     margin-top: $spacing-2
+
             @include media-breakpoint-up(desktop)
                 flex-direction: row-reverse
                 justify-content: space-between
                 figure
                     width: columns(4)
+
+        @include in-page-with-or-without-sidebar
+            display: block
 
 // posts signatures
 .posts__page 
